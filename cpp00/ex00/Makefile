@@ -6,27 +6,27 @@
 #    By: segan <segan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 03:57:56 by segan             #+#    #+#              #
-#    Updated: 2023/07/20 04:37:34 by segan            ###   ########.fr        #
+#    Updated: 2023/07/21 02:24:55 by segan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megahone
+NAME = megaphone
 
-CC = c++
+CXX = g++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = megahone.cpp
+SRCS = megaphone.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OJBS)
-	$(CC) $(CXXFLAGS) -O $(NAME) $(OBJS)
+$(NAME) : $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o : %.cpp
-	$(CC) $(DEBUG) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS)
@@ -39,4 +39,4 @@ re :
 	make fclean
 	make all
 
-.Phony : all clean fclean re
+.PHONY : all clean fclean re
