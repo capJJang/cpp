@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: segan <segan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/20 03:57:56 by segan             #+#    #+#              #
-#    Updated: 2023/07/21 02:24:55 by segan            ###   ########.fr        #
+#    Created: 2023/07/24 10:23:21 by segan             #+#    #+#              #
+#    Updated: 2023/07/24 10:25:32 by segan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,6 @@ clean :
 
 fclean :
 	make clean
-	rm -f $(NAME)
+	rm $(NAME)
 
-re :
-	make fclean
-	make all
-
-.PHONY : all clean fclean re
+.PHONY : all clean fclean
