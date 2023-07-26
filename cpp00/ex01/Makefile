@@ -6,7 +6,7 @@
 #    By: segan <segan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 03:57:56 by segan             #+#    #+#              #
-#    Updated: 2023/07/21 03:08:47 by segan            ###   ########.fr        #
+#    Updated: 2023/07/26 13:17:47 by segan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXX = g++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp phoneBook.cpp contact.cpp
+SRCS = main.cpp Phonebook.cpp Contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

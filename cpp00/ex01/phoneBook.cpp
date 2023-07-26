@@ -1,15 +1,25 @@
 #include <cstdlib>
-#inlcude "Phonebook.hpp"
+#include "Phonebook.hpp"
 
-Phonebook::phonebook(/* args */)
+Phonebook::Phonebook()
+{}
+
+Phonebook::~Phonebook()
+{}
+
+void	Phonebook::add()
 {
+	;
 }
 
-Phonebook::~phonebook()
+
+
+void	Phonebook::search()
 {
+	;
 }
 
-Phonebook::exit()
+void	Phonebook::exit(void)
 {
 	std::exit(0);
 }
