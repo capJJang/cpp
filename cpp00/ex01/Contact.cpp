@@ -13,13 +13,13 @@ Contact::~Contact()
 
 void	Contact::setFirstName(std::string firstName_) { firstName = firstName_; }
 
-void	Contact::setFirstName(std::string lastName_) { lastName = lastName_; }
+void	Contact::setLastName(std::string lastName_) { lastName = lastName_; }
 
-void	Contact::setFirstName(std::string nickname_) { nickname = nickname_; }
+void	Contact::setNickname(std::string nickname_) { nickname = nickname_; }
 
-void	Contact::setFirstName(std::string phoneNumber_) { phoneNumber = phoneNumber_; }
+void	Contact::setPhoneNumber(std::string phoneNumber_) { phoneNumber = phoneNumber_; }
 
-void	Contact::setFirstName(std::string darkestSecret_) { darkestSecret = darkestSecret_; }
+void	Contact::setDarkestScret(std::string darkestSecret_) { darkestSecret = darkestSecret_; }
 
 std::string	Contact::getFirstName() { return firstName; }
 
@@ -33,5 +33,5 @@ std::string	Contact::getDarkestScret() { return darkestSecret; }
 
 void	Contact::printContact()
 {
-	std::cout << getFirstName() << getLastName() << getNickname() << getPhoneNumber() << getDarkestScret() << std::endl;
+	std::cout << getFirstName() << " | " << getLastName() << " | " << getNickname() << " | " << getPhoneNumber() << " | " << getDarkestScret() << std::endl;
 }

@@ -20,13 +20,11 @@ class Contact
 		void	setNickname(std::string nickname);
 		void	setPhoneNumber(std::string phoneNumber);
 		void	setDarkestScret(std::string darkestSecret);
-
 		std::string	getFirstName();
 		std::string	getLastName();
 		std::string	getNickname();
 		std::string	getPhoneNumber();
 		std::string	getDarkestScret();
-
 		void	printContact();
 };
 
