@@ -6,7 +6,7 @@
 #    By: segan <segan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 03:57:56 by segan             #+#    #+#              #
-#    Updated: 2023/07/26 13:17:47 by segan            ###   ########.fr        #
+#    Updated: 2023/07/30 17:24:19 by segan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = phonebook
 
 CXX = g++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRCS = main.cpp Phonebook.cpp Contact.cpp
 

@@ -1,5 +1,6 @@
 #include "Contact.hpp"
 #include <iostream>
+#include <iomanip>
 
 Contact::Contact()
 {
@@ -21,17 +22,20 @@ void	Contact::setPhoneNumber(std::string phoneNumber_) { phoneNumber = phoneNumb
 
 void	Contact::setDarkestScret(std::string darkestSecret_) { darkestSecret = darkestSecret_; }
 
-std::string	Contact::getFirstName() { return firstName; }
+std::string	Contact::getFirstName() { return this->firstName; }
 
-std::string	Contact::getLastName() { return lastName; }
+std::string	Contact::getLastName() { return this->lastName; }
 
-std::string	Contact::getNickname() { return nickname; }
+std::string	Contact::getNickname() { return this->nickname; }
 
-std::string	Contact::getPhoneNumber() { return phoneNumber; }
+std::string	Contact::getPhoneNumber() { return this->phoneNumber; }
 
-std::string	Contact::getDarkestScret() { return darkestSecret; }
+std::string	Contact::getDarkestSecret() { return this->darkestSecret; }
 
 void	Contact::printContact()
 {
-	std::cout << getFirstName() << " | " << getLastName() << " | " << getNickname() << " | " << getPhoneNumber() << " | " << getDarkestScret() << std::endl;
+	std::cout << std::setw(10) << getFirstName() << "|";
+	std::cout << std::setw(10) << getLastName() << "|";
+	std::cout << std::setw(10) << getNickname() << "|";
+	std::cout << std::setw(10) << getDarkestSecret() << std::endl;
 }

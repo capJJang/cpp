@@ -24,7 +24,7 @@ class Contact
 		std::string	getLastName();
 		std::string	getNickname();
 		std::string	getPhoneNumber();
-		std::string	getDarkestScret();
+		std::string	getDarkestSecret();
 		void	printContact();
 };
 
