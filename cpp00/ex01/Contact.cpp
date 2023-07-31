@@ -39,3 +39,19 @@ void	Contact::printContact()
 	std::cout << std::setw(10) << getNickname() << "|";
 	std::cout << std::setw(10) << getDarkestSecret() << std::endl;
 }
+
+void	Contact::printField(std::string s)
+{
+	std::cout << std::setw(10);
+	for (unsigned long i = 0; i < s.length(); i++)
+	{
+		if (i == 10)
+		{
+			std::cout << "TEST";
+			break;
+		}
+		else
+			std::cout << s[i];
+	}
+	std::cout << std::endl;
+}

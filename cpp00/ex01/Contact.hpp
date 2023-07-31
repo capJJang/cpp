@@ -26,6 +26,7 @@ class Contact
 		std::string	getPhoneNumber();
 		std::string	getDarkestSecret();
 		void	printContact();
+		void	printField(std::string s);
 };
 
 #endif
