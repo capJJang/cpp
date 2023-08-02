@@ -32,26 +32,19 @@ std::string	Contact::getPhoneNumber() { return this->phoneNumber; }
 
 std::string	Contact::getDarkestSecret() { return this->darkestSecret; }
 
-void	Contact::printContact()
+std::string	Contact::shortenField(std::string s)
 {
-	std::cout << std::setw(10) << getFirstName() << "|";
-	std::cout << std::setw(10) << getLastName() << "|";
-	std::cout << std::setw(10) << getNickname() << "|";
-	std::cout << std::setw(10) << getDarkestSecret() << std::endl;
+	if (s.length() > 11)
+	{
+		s.resize(9);
+		s.push_back('.');
+	}
+	return (s);
 }
 
-void	Contact::printField(std::string s)
+void	Contact::printContact()
 {
-	std::cout << std::setw(10);
-	for (unsigned long i = 0; i < s.length(); i++)
-	{
-		if (i == 10)
-		{
-			std::cout << "TEST";
-			break;
-		}
-		else
-			std::cout << s[i];
-	}
-	std::cout << std::endl;
+	std::cout << std::setw(10) << shortenField(getFirstName()) << "|";
+	std::cout << std::setw(10) << shortenField(getLastName()) << "|";
+	std::cout << std::setw(10) << shortenField(getNickname()) << "|" << std::endl;
 }

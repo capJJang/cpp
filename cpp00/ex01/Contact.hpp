@@ -15,18 +15,18 @@ class Contact
 	public:
 		Contact(/* args */);
 		~Contact();
-		void	setFirstName(std::string firstName);
-		void	setLastName(std::string lasttName);
-		void	setNickname(std::string nickname);
-		void	setPhoneNumber(std::string phoneNumber);
-		void	setDarkestScret(std::string darkestSecret);
+		void		setFirstName(std::string firstName);
+		void		setLastName(std::string lasttName);
+		void		setNickname(std::string nickname);
+		void		setPhoneNumber(std::string phoneNumber);
+		void		setDarkestScret(std::string darkestSecret);
 		std::string	getFirstName();
 		std::string	getLastName();
 		std::string	getNickname();
 		std::string	getPhoneNumber();
 		std::string	getDarkestSecret();
-		void	printContact();
-		void	printField(std::string s);
+		void		printContact();
+		std::string	shortenField(std::string s);
 };
 
 #endif
