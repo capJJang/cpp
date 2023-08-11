@@ -1,10 +1,8 @@
 #include <iostream>
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name_, Weapon &weapon_)
+HumanA::HumanA(std::string name_, Weapon &weapon_) : weapon(weapon_), name(name_)
 {
-	this->name = name_;
-	this->weapon = &weapon_;
 }
 
 HumanA::~HumanA()
