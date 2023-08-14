@@ -1,4 +1,9 @@
+#include <iostream>
 #include "Harl.hpp"
+
+Harl::Harl(){}
+Harl::~Harl(){}
+
 
 void	Harl::debug(void) {
 	std::cout << "[ DEBUG ]" << std::endl;
@@ -18,4 +23,19 @@ void	Harl::warning(void) {
 void	Harl::error(void) {
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout	<< "This is unacceptable, I want to speak to the manager now." << std::endl << std::endl;
+}
+
+void	Harl::complain(std::string complain)
+{
+	int	i = 0;
+	std::string funcs[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	void(Harl::*fPointer[4])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+	while (i < 4)
+	{
+		if (funcs[i] == complain)
+			break ;
+		i++;
+	}
+	(this->*fPointer[i])();
 }
