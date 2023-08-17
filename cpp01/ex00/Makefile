@@ -2,7 +2,7 @@ NAME = zombie
 
 CC = g++
 
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
@@ -10,7 +10,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME) = $(OBJS)
+$(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 %.o : %.cpp
