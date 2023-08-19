@@ -1,4 +1,3 @@
-#pragma once
 
 #include <iostream>
 #include "Fixed.hpp"
@@ -6,6 +5,7 @@
 Fixed::Fixed(/* args */)
 {
 	std::cout << "Default constructor called" << std::endl;
+	this->numberValue = 0;
 }
 
 Fixed::~Fixed()
@@ -13,24 +13,27 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& origin)
+Fixed::Fixed(const Fixed& rhs)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = origin;
+	this->numberValue = rhs.getRawBits();
 }
 
-Fixed& Fixed::operator=(const Fixed& f) {
+Fixed& Fixed::operator=(const Fixed& rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this-> = f.getRawBits();
+	if (this != &rhs)	
+		this-> numberValue = rhs.getRawBits();
 	return *this;
 }
+// cannot return NULL
 
-int	Fixed::getRawBits()
+int	Fixed::getRawBits() const
 {
-	return (this->rawBits);
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->numberValue);
 }
 
-void Fixed::setRawBits(int const raw)
+void Fixed::setRawBits(int const numberValue_)
 {
-	this->rawBits = raw;
+	this->numberValue = numberValue_;
 }
