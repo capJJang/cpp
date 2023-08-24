@@ -2,8 +2,16 @@
 
 #include <iostream>
 
+ScavTrap::ScavTrap() {
+  std::cout << "Scav Trap default constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name)
-    : _name(name), _hitPoint(100), _energyPoint(50), _attackDamage(20) {
+    : ClapTrap(name),
+      _name(name),
+      _hitPoint(100),
+      _energyPoint(50),
+      _attackDamage(20) {
   std::cout << "Scav Trap Constructor called" << std::endl;
 }
 

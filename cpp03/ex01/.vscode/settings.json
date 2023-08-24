@@ -44,5 +44,12 @@
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"typeinfo": "cpp"
-	}
+	},
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/mnt/d/42SEOUL/cpp/cpp03/ex01",
+			"binaryPath": "/mnt/d/42SEOUL/cpp/cpp03/ex01/a.out",
+			"binaryArgs": []
+		}
+	]
 }
