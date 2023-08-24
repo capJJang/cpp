@@ -37,20 +37,22 @@ std::ostream& operator<<(std::ostream& out, const ClapTrap& rhs) {
 // methods
 std::string ClapTrap::getName() const { return (this->_name); }
 
-int ClapTrap::getEnergyPoints() const { return (this->_energyPoints); }
+unsigned int ClapTrap::getEnergyPoints() const { return (this->_energyPoints); }
 
-int ClapTrap::getHitPoints() const { return (this->_hitPoints); }
+unsigned int ClapTrap::getHitPoints() const { return (this->_hitPoints); }
 
-int ClapTrap::getAttackDamage() const { return (_attackDamage); }
+unsigned int ClapTrap::getAttackDamage() const { return (_attackDamage); }
 
 void ClapTrap::setName(std::string name) { this->_name = name; }
 
-void ClapTrap::setHitPoints(int hitPoints) { this->_hitPoints = hitPoints; }
+void ClapTrap::setHitPoints(unsigned int hitPoints) {
+  this->_hitPoints = hitPoints;
+}
 
-void ClapTrap::setEnergyPoints(int energyPoints) {
+void ClapTrap::setEnergyPoints(unsigned int energyPoints) {
   this->_energyPoints = energyPoints;
 }
-void ClapTrap::setAttackDamage(int attackDamage) {
+void ClapTrap::setAttackDamage(unsigned int attackDamage) {
   this->_attackDamage = attackDamage;
 }
 
