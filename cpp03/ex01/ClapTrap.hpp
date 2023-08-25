@@ -14,7 +14,7 @@ class ClapTrap {
   ClapTrap(/* args */);
   ~ClapTrap();
   ClapTrap(std::string name);
-  ClapTrap(ClapTrap& rhs);
+  ClapTrap(const ClapTrap& rhs);
   ClapTrap& operator=(const ClapTrap& rhs);
 
   std::string getName() const;
