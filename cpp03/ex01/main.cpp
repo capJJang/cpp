@@ -15,8 +15,10 @@ int main(void) {
   // test2.attack("test3");
   // std::cout << test2 << std::endl << test3 << std::endl;
   ScavTrap test("test");
+  std::cout << test << std::endl;
+  // test.guardGate();
+  // test.attack("test1");
+  test.attack("asdf");
   test.guardGate();
-  test.attack("test1");
-  test.beRepaired(10);
-  test.takeDamage(11);
+  std::cout << test << std::endl;
 }

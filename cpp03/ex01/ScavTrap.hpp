@@ -6,12 +6,6 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
- private:
-  std::string _name;
-  unsigned int _hitPoint;
-  unsigned int _energyPoint;
-  unsigned int _attackDamage;
-
  public:
   ScavTrap(/* args */);
   ScavTrap(std::string name);
@@ -20,6 +14,7 @@ class ScavTrap : public ClapTrap {
   ~ScavTrap();
 
   void guardGate();
+  void attack(std::string const& target);
 };
 
 // std::ostream& operator<<(std::ostream& out, const ClapTrap& rhs);

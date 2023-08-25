@@ -2,7 +2,7 @@ NAME = a.out
 
 CC = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 
