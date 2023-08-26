@@ -5,15 +5,17 @@
 // constructors
 ClapTrap::ClapTrap(/* args */) {}
 
-ClapTrap::~ClapTrap() { std::cout << "Destructor called" << std::endl; }
+ClapTrap::~ClapTrap() {
+  std::cout << "Clap Trap destructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name)
     : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-  std::cout << "Constructor called" << std::endl;
+  std::cout << "Clap Trap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap& rhs) {
-  std::cout << "Copy constructor called" << std::endl;
+  std::cout << "Clap Trap copy constructor called" << std::endl;
   *this = rhs;
 }
 
@@ -66,7 +68,7 @@ void ClapTrap::attack(const std::string& target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
   std::cout << "ClapTrap " << this->getName() << " takes " << amount
-            << std::endl;
+            << " damage." << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {

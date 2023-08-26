@@ -6,11 +6,10 @@ ScavTrap::ScavTrap() {
   std::cout << "Scav Trap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
-    : ClapTrap(name){
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+  this->_energyPoints = 50;
+  this->_attackDamage = 20;
   std::cout << "Scav Trap Constructor called" << std::endl;
 }
 
@@ -18,8 +17,7 @@ ScavTrap::~ScavTrap() {
   std::cout << "Scav Trap Destructor Called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& rhs)
-    : ClapTrap(rhs) {
+ScavTrap::ScavTrap(const ScavTrap& rhs) : ClapTrap(rhs) {
   std::cout << "Copy constructor called" << std::endl;
 }
 
