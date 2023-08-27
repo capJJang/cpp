@@ -8,9 +8,8 @@ Cat::Cat() : Animal("Cat") {
 
 Cat::~Cat() { std::cout << "Cat destructor called" << std::endl; }
 
-Cat::Cat(const Cat& rhs) {
+Cat::Cat(const Cat& rhs) : Animal(rhs.getType()) {
   std::cout << "Cat copy constructor called" << std::endl;
-  this->_type = rhs.getType();
 }
 
 Cat& Cat::operator=(const Cat& rhs) {

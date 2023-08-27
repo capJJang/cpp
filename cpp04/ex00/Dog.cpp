@@ -8,9 +8,8 @@ Dog::Dog() : Animal("Dog") {
 
 Dog::~Dog() { std::cout << "Dog destructor called" << std::endl; }
 
-Dog::Dog(const Dog& rhs) {
+Dog::Dog(const Dog& rhs) : Animal(rhs.getType()) {
   std::cout << "Dog copy constructor called" << std::endl;
-  this->_type = rhs.getType();
 }
 
 Dog& Dog::operator=(const Dog& rhs) {

@@ -10,9 +10,8 @@ WrongCat::~WrongCat() {
   std::cout << "WrongCat destructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat& rhs) {
+WrongCat::WrongCat(const WrongCat& rhs) : WrongAnimal(rhs.getType()) {
   std::cout << "WrongCat copy constructor called" << std::endl;
-  this->_type = rhs.getType();
 }
 
 WrongCat& WrongCat::operator=(const WrongCat& rhs) {

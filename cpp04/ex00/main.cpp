@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 
 #include "Animal.hpp"
@@ -23,8 +24,16 @@ int main() {
   k->makeSound();
 
   delete meta;
+  meta = NULL;
   delete j;
+  j = NULL;
   delete i;
+  i = NULL;
   delete k;
+  k = NULL;
   return 0;
+  // system("valgrind --leak-check=full ./a.out");
+  // while (true) {
+  //   /* code */
+  // }
 }
