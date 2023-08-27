@@ -45,6 +45,6 @@ int main() {
   k = NULL;
 
   delete l;
-  system("leaks a.out");
+  // system("leaks a.out");
   return 0;
 }

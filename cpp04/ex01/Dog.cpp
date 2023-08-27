@@ -11,9 +11,8 @@ Dog::~Dog() {
   delete brain;
 }
 
-Dog::Dog(const Dog& rhs) {
+Dog::Dog(const Dog& rhs) : Animal(rhs.getType()) {
   std::cout << "Dog copy constructor called" << std::endl;
-  this->_type = rhs.getType();
   *(this->brain) = *(rhs.brain);
 }
 

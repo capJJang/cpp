@@ -11,9 +11,8 @@ Cat::~Cat() {
   delete brain;
 }
 
-Cat::Cat(const Cat& rhs) {
+Cat::Cat(const Cat& rhs) : Animal(rhs.getType()) {
   std::cout << "Cat copy constructor called" << std::endl;
-  this->_type = rhs.getType();
   *(this->brain) = *(rhs.brain);
 }
 
