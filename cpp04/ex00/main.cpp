@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <iostream>
 
 #include "Animal.hpp"
@@ -8,32 +7,28 @@
 #include "WrongCat.hpp"
 
 int main() {
-  const Animal* meta = new Animal();
-  const Animal* j = new Dog();
-  const Animal* i = new Cat();
-  const WrongAnimal* k = new WrongCat();
+  const Animal* animal = new Animal();
+  const Animal* dog = new Dog();
+  const Animal* cat = new Cat();
+  const WrongAnimal* wrongCat = new WrongCat();
 
-  std::cout << j->getType() << " " << std::endl;
-  std::cout << i->getType() << " " << std::endl;
-  std::cout << k->getType() << " " << std::endl;
+  std::cout << dog->getType() << " " << std::endl;
+  std::cout << cat->getType() << " " << std::endl;
+  std::cout << wrongCat->getType() << " " << std::endl;
 
-  i->makeSound();  // will output the cat sound!
-  j->makeSound();
-  meta->makeSound();
+  cat->makeSound();  // will output the cat sound!
+  dog->makeSound();
+  animal->makeSound();
   std::cout << "----Virtual funcion test-----" << std::endl;
-  k->makeSound();
+  wrongCat->makeSound();
 
-  delete meta;
-  meta = NULL;
-  delete j;
-  j = NULL;
-  delete i;
-  i = NULL;
-  delete k;
-  k = NULL;
+  delete animal;
+  animal = NULL;
+  delete dog;
+  dog = NULL;
+  delete cat;
+  cat = NULL;
+  delete wrongCat;
+  wrongCat = NULL;
   return 0;
-  // system("valgrind --leak-check=full ./a.out");
-  // while (true) {
-  //   /* code */
-  // }
 }

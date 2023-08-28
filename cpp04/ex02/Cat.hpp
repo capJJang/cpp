@@ -2,13 +2,15 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
  private:
-  /* data */
+  Brain* brain;
+
  public:
   Cat(/* args */);
-  virtual ~Cat();
+  ~Cat();
   Cat(const Cat& rhs);
   Cat& operator=(const Cat& rhs);
 

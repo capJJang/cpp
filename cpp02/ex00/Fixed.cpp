@@ -21,7 +21,6 @@ Fixed& Fixed::operator=(const Fixed& rhs) {
   this->numberValue = rhs.getRawBits();
   return *this;
 }
-// cannot return NULL
 
 int Fixed::getRawBits() const {
   std::cout << "getRawBits member function called" << std::endl;

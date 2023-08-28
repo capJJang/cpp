@@ -6,45 +6,23 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-// int main() {
-//   const Animal* meta = new Animal();
-//   const Animal* j = new Dog();
-//   const Animal* i = new Cat();
-//   const WrongAnimal* k = new WrongCat();
-
-//  std::cout << j->getType() << " " << std::endl;
-//  std::cout << i->getType() << " " << std::endl;
-//  std::cout << k->getType() << " " << std::endl;
-
-//  i->makeSound();  // will output the cat sound!
-//  j->makeSound();
-//  meta->makeSound();
-//  std::cout << "----Virtual funcion test-----" << std::endl;
-//  k->makeSound();
-
-//  delete meta;
-//  delete j;
-//  delete i;
-//  delete k;
-//  return 0;
-//}
-
 int main() {
-  Animal* j = new Dog();
-  Animal* i = new Cat();
-  Cat* k = new Cat();
-  Cat* l = new Cat();
+  Animal* dog = new Dog();
+  Animal* cat = new Cat();
+  Cat* deepCopyTest1 = new Cat();
+  Cat* deepCopyTest2 = new Cat();
 
   std::cout << "----------------------------------------------" << std::endl;
-  *l = *k;
-  delete j;  // should not create a leak
-  delete i;
-  delete k;
-  i = NULL;
-  j = NULL;
-  k = NULL;
+  *deepCopyTest2 = *deepCopyTest1;
+  delete dog;  // should not create a leak
+  delete cat;
+  delete deepCopyTest1;
+  cat = NULL;
+  dog = NULL;
+  deepCopyTest1 = NULL;
 
-  delete l;
-  // system("leaks a.out");
+  delete deepCopyTest2;
+  deepCopyTest2 = NULL;
+  //system("leaks a.out");
   return 0;
 }

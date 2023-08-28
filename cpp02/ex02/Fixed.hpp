@@ -14,12 +14,12 @@ class Fixed {
   Fixed(const int numberValue_);
   Fixed(const float numberValue);
   Fixed &operator=(const Fixed &rhs);
-  bool operator>(Fixed const &rhs) const;
-  bool operator<(Fixed const &rhs) const;
-  bool operator>=(Fixed const &rhs) const;
-  bool operator<=(Fixed const &rhs) const;
-  bool operator==(Fixed const &rhs) const;
-  bool operator!=(Fixed const &rhs) const;
+  bool operator>(const Fixed &rhs) const;
+  bool operator<(const Fixed &rhs) const;
+  bool operator>=(const Fixed &rhs) const;
+  bool operator<=(const Fixed &rhs) const;
+  bool operator==(const Fixed &rhs) const;
+  bool operator!=(const Fixed &rhs) const;
   Fixed operator+(const Fixed &rhs) const;
   Fixed operator-(const Fixed &rhs) const;
   Fixed operator*(const Fixed &rhs) const;
@@ -34,8 +34,8 @@ class Fixed {
   float toFloat(void) const;
   static Fixed &min(Fixed &param1, Fixed &param2);
   static Fixed &max(Fixed &param1, Fixed &param2);
-  static const Fixed &min(Fixed const &param1, Fixed const &param2);
-  static const Fixed &max(Fixed const &param1, Fixed const &param2);
+  static const Fixed &min(const Fixed &param1, const Fixed &param2);
+  static const Fixed &max(const Fixed &param1, const Fixed &param2);
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &rhs);

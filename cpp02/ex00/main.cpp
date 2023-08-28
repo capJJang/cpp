@@ -4,6 +4,7 @@
 
 int main(void) {
   Fixed a;
+  a.setRawBits(2);
   Fixed b(a);
   Fixed c;
 

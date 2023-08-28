@@ -1,11 +1,13 @@
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef WrongCAT_HPP
+#define WrongCAT_HPP
 
+#include "Brain.hpp"
 #include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal {
  private:
-  /* data */
+  Brain* brain;
+
  public:
   WrongCat(/* args */);
   ~WrongCat();

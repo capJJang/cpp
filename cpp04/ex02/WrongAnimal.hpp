@@ -1,5 +1,5 @@
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef WrongANIMAL_HPP
+#define WrongANIMAL_HPP
 
 #include <string>
 
