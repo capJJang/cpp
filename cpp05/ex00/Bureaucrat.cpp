@@ -7,7 +7,7 @@ Bureaucrat::Bureaucrat(/* args */) {
 }
 
 Bureaucrat::~Bureaucrat() throw() {
-  std::cout << *this << " Desstructor called" << std::endl;
+  std::cout << this->name_ << " Desstructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name) {
@@ -38,16 +38,17 @@ std::string Bureaucrat::getName() const { return (this->name_); }
 int Bureaucrat::getGrade() const { return (this->grade_); }
 
 void Bureaucrat::incrementGrade(int amount) {
+  if (this->getGrade() + amount > 150)
+    throw Bureaucrat::GradeTooHighException();
   this->grade_ += amount;
-  if (this->getGrade() < 1) throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::decrementGrade(int amout) {
-  this->grade_ -= amout;
-  if (this->getGrade() < 1) throw Bureaucrat::GradeTooLowException();
+void Bureaucrat::decrementGrade(int amount) {
+  if (this->getGrade() - amount < 1) throw Bureaucrat::GradeTooLowException();
+  this->grade_ -= amount;
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs) {
-  out << "Name, " << rhs.getName() << "  grade " << rhs.getGrade() << std::endl;
+  out << "Name, " << rhs.getName() << "  grade " << rhs.getGrade();
   return out;
 }
