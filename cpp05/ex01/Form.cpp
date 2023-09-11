@@ -8,7 +8,7 @@
 Form::Form(/* args */) {}
 
 Form::~Form() throw() {
-  std::cout << this->name_ << " Desstructor called" << std::endl;
+  std::cout << "Form " << this->name_ << " Desstructor called" << std::endl;
 }
 
 Form::Form(const std::string name, int gradeForSign, int gradeForExecute)
@@ -16,7 +16,7 @@ Form::Form(const std::string name, int gradeForSign, int gradeForExecute)
       isSigned_(false),
       gradeForSign_(gradeForSign),
       gradeForExecute_(gradeForExecute) {
-  std::cout << "Form conversion constructor called" << std::endl;
+  std::cout << "Form " << name << " conversion constructor called" << std::endl;
 }
 
 Form::Form(const Form &rhs) {
@@ -49,6 +49,6 @@ void Form::beSigned(Bureaucrat &bureaucrat) {
 std::ostream &operator<<(std::ostream &out, const Form &rhs) {
   out << "name: " << rhs.getName() << " is signed: " << rhs.getIsSigned()
       << " grade for sign: " << rhs.getGradeForSigned()
-      << " grade for execut:" << rhs.getGradeForExecute() << std::endl;
+      << " grade for execute:" << rhs.getGradeForExecute() << std::endl;
   return out;
 }

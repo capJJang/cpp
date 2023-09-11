@@ -5,7 +5,8 @@
 #include <ostream>
 #include <string>
 
-#include "Form.hpp"
+// #include "Form.hpp"
+class Form;
 
 class Bureaucrat : public std::exception {
  private:
