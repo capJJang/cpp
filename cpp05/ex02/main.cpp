@@ -25,5 +25,13 @@ int main() {
   {
     std::cerr << e.what() << '\n';
   }
+   try
+  {
+    test1.executeAForm(*test2);
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
   
 }

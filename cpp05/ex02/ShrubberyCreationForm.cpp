@@ -41,22 +41,34 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (this->getIsSigned() == false) throw AForm::FormNotSigned();
     if (this->getGradeForExecute() < executor.getGrade()) throw Bureaucrat::GradeTooLowException();
-	std::ofstream file(this->target_ + "_shrubbery");
-	for (int i = 1; i <= 5; i++) {
-        for (int j = 0; j < 5 - i; j++) {
-            file << " ";
+	
+    try
+    {
+        std::ofstream file(this->target_ + "_shrubbery");
+
+    	if (!file.is_open()) {
+            throw std::runtime_error("File open Failed"); // 예외 던지기
         }
-        for (int j = 0; j < 2 * i - 1; j++) {
-            file << "*";
-        }
-        file << std::endl;
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 0; j < 5 - i; j++) {
+                file << " ";
+            }
+            for (int j = 0; j < 2 * i - 1; j++) {
+              file << "*";
+           }
+           file << std::endl;
+       }
+       for (int i = 0; i < 5 - 1; i++) {
+           for (int j = 0; j < 5 - 1; j++) {
+               file << " ";
+          }
+                file << "|" << std::endl;
+       }
+       file.close();
+       std::cout << "Execution of Shrubbery form success!" << std::endl;
     }
-    for (int i = 0; i < 5 - 1; i++) {
-        for (int j = 0; j < 5 - 1; j++) {
-            file << " ";
-        }
-        file << "|" << std::endl;
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
     }
-    file.close();
-    std::cout << "Execution of Shrubbery form success!" << std::endl;
 }

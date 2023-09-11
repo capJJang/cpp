@@ -18,6 +18,7 @@ $(NAME) : $(OBJS)
 
 clean :
 	rm -f $(OBJS)
+	rm -f Shrubbery_shrubbery
 
 fclean :
 	make clean
