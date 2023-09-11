@@ -2,7 +2,7 @@
 #include <ostream>
 #include <string>
 
-class Bureaucrat : std::exception {
+class Bureaucrat : public std::exception {
  private:
   const std::string name_;
   int grade_;
