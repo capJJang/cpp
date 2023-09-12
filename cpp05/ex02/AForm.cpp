@@ -16,7 +16,8 @@ AForm::AForm(const std::string name, int gradeForSign, int gradeForExecute)
       isSigned_(false),
       gradeForSign_(gradeForSign),
       gradeForExecute_(gradeForExecute) {
-  std::cout << "AForm " << name << " conversion constructor called" << std::endl;
+  std::cout << "AForm " << name << " conversion constructor called"
+            << std::endl;
 }
 
 AForm::AForm(const AForm &rhs) {
@@ -40,18 +41,13 @@ int AForm::getGradeForSigned() const { return this->gradeForSign_; }
 
 int AForm::getGradeForExecute() const { return this->gradeForExecute_; }
 
-void AForm::setIsSigned(bool isSigned)
-{
-  this->isSigned_ = isSigned;
-}
+void AForm::setIsSigned(bool isSigned) { this->isSigned_ = isSigned; }
 
-void AForm::setGradeForSigned(int gradeForSign)
-{
+void AForm::setGradeForSigned(int gradeForSign) {
   this->gradeForSign_ = gradeForSign;
 }
 
-void AForm::setGradeForExecute(int gradeForExecute)
-{
+void AForm::setGradeForExecute(int gradeForExecute) {
   this->gradeForExecute_ = gradeForExecute;
 }
 

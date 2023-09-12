@@ -35,8 +35,8 @@ class Bureaucrat : public std::exception {
 
   void incrementGrade(int amount);
   void decrementGrade(int amount);
-  void signAForm(AForm &AForm);           //pointer or reference..?
-  void executeAForm(AForm const & aForm);
+  void signAForm(AForm &AForm);  // pointer or reference..?
+  void executeAForm(AForm const &aForm);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);
