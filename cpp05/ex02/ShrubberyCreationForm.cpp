@@ -19,8 +19,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
             << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs) {
-  *this = rhs;
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs)
+    : AForm(rhs.getName(), rhs.getGradeForSigned(), rhs.getGradeForExecute()) {
+  // *this = rhs;
   std::cout << "Shrubbery creation form conversion constructor called"
             << std::endl;
 }

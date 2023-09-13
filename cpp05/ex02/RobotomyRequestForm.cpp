@@ -19,8 +19,8 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
             << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs) {
-  *this = rhs;
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs)
+    : AForm(rhs.getName(), rhs.getGradeForSigned(), rhs.getGradeForExecute()) {
   std::cout << "Robotomy Request form conversion constructor called"
             << std::endl;
 }

@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat(/* args */) {
 }
 
 Bureaucrat::~Bureaucrat() throw() {
-  std::cout << "Bureaucra t" << this->name_ << " Desstructor called"
+  std::cout << "Bureaucrat" << this->name_ << " Desstructor called"
             << std::endl;
 }
 

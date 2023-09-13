@@ -2,44 +2,64 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 int main() {
-  Bureaucrat test1("test1", 1);
-  AForm* test2 = new ShrubberyCreationForm("test2");
+  Bureaucrat bureaucrat("bureaucrat", 1);
+  AForm* shrubbery = new ShrubberyCreationForm("shrubbery");
+
+  std::cout << "---------------Shrubbery-------------" << std::endl;
+  try {
+    bureaucrat.signAForm(*shrubbery);  // pointer or reference..?
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
 
   try {
-    test1.signAForm(*test2);  // pointer or reference..?
+    bureaucrat.executeAForm(*shrubbery);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
+  try {
+    bureaucrat.executeAForm(*shrubbery);
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << '\n';
+  }
+  delete shrubbery;
+  shrubbery = NULL;
+
+  std::cout << "---------------Robotomy-------------" << std::endl;
+  AForm* robotomy = new RobotomyRequestForm("robotomy");
 
   try {
-    test1.executeAForm(*test2);
+    bureaucrat.signAForm(*robotomy);  // pointer or reference..?
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
   try {
-    test1.executeAForm(*test2);
+    bureaucrat.executeAForm(*robotomy);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
-  delete test2;
-  test2 = NULL;
+  delete robotomy;
+  robotomy = NULL;
 
-  AForm* test3 = new RobotomyRequestForm("test3");
+  std::cout << "---------------Presidential-------------" << std::endl;
+  AForm* presidential = new PresidentialPardonForm("presidential");
 
   try {
-    test1.signAForm(*test3);  // pointer or reference..?
+    bureaucrat.signAForm(*presidential);  // pointer or reference..?
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
   try {
-    test1.executeAForm(*test3);
+    bureaucrat.executeAForm(*presidential);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
-  delete test2;
-  test2 = NULL;
+  delete presidential;
+  presidential = NULL;
+  std::cout << "----------------------------" << std::endl;
 }

@@ -20,8 +20,8 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 }
 
 PresidentialPardonForm::PresidentialPardonForm(
-    const PresidentialPardonForm &rhs) {
-  *this = rhs;
+    const PresidentialPardonForm &rhs)
+    : AForm(rhs.getName(), rhs.getGradeForSigned(), rhs.getGradeForExecute()) {
   std::cout << "Presidential pardon form conversion constructor called"
             << std::endl;
 }
