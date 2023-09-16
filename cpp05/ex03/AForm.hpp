@@ -41,8 +41,6 @@ class AForm : public std::exception {
   int getGradeForExecute() const;
 
   void setIsSigned(bool isSigned);
-  void setGradeForSigned(int gradeForSign);
-  void setGradeForExecute(int gradeForExecute);
 
   void beSigned(Bureaucrat &bureaucrat);
   virtual void execute(Bureaucrat const &executor) const = 0;

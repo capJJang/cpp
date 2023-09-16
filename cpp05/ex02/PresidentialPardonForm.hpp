@@ -1,12 +1,11 @@
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#ifndef PresidentialPardonForm_HPP
+#define PresidentialPardonForm_HPP
 
 #include <string>
 
 #include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm {
- private:
   std::string target_;
 
  public:

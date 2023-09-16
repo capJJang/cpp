@@ -30,8 +30,6 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(
     const ShrubberyCreationForm &rhs) {
   if (this == &rhs) return *this;
   this->setIsSigned(rhs.getIsSigned());
-  this->setGradeForSigned(rhs.getGradeForSigned());
-  this->setGradeForExecute(rhs.getGradeForExecute());
   return *this;
 }
 

@@ -43,7 +43,8 @@ std::string Bureaucrat::getName() const { return (this->name_); }
 int Bureaucrat::getGrade() const { return (this->grade_); }
 
 void Bureaucrat::incrementGrade(int amount) {
-  if (this->getGrade() - amount > 150) throw Bureaucrat::GradeTooLowException();
+  if (this->getGrade() - amount > 150)
+    throw Bureaucrat::GradeTooLowException();
   this->grade_ -= amount;
 }
 

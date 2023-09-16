@@ -5,7 +5,7 @@
 
 #include "Bureaucrat.hpp"
 
-Form::Form(/* args */) {}
+Form::Form(/* args */) : gradeForSign_(0), gradeForExecute_(0) {}
 
 Form::~Form() throw() {
   std::cout << "Form " << this->name_ << " Desstructor called" << std::endl;
@@ -21,7 +21,7 @@ Form::Form(const std::string name, int gradeForSign, int gradeForExecute)
 
 Form::Form(const Form &rhs)
     : name_(rhs.getName()),
-      isSigned_(false),
+      isSigned_(rhs.getIsSigned()),
       gradeForSign_(rhs.getGradeForSigned()),
       gradeForExecute_(rhs.getGradeForExecute()) {
   std::cout << "Copy constructor called" << std::endl;
@@ -30,8 +30,7 @@ Form::Form(const Form &rhs)
 
 Form &Form::operator=(const Form &rhs) {
   if (this == &rhs) return *this;
-
-  this->isSigned_ = rhs.isSigned_;
+  this->isSigned_ = rhs.getIsSigned();
   return *this;
 }
 

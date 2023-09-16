@@ -5,7 +5,7 @@
 
 #include "Bureaucrat.hpp"
 
-AForm::AForm(/* args */) {}
+AForm::AForm(/* args */) : gradeForSign_(0), gradeForExecute_(0) {}
 
 AForm::~AForm() throw() {
   std::cout << "AForm " << this->name_ << " Desstructor called" << std::endl;
@@ -20,14 +20,16 @@ AForm::AForm(const std::string name, int gradeForSign, int gradeForExecute)
             << std::endl;
 }
 
-AForm::AForm(const AForm &rhs) {
+AForm::AForm(const AForm &rhs)
+    : name_(rhs.getName()),
+      isSigned_(rhs.getIsSigned()),
+      gradeForSign_(rhs.getGradeForSigned()),
+      gradeForExecute_(rhs.getGradeForExecute()) {
   std::cout << "Copy constructor called" << std::endl;
-  *this = rhs;
 }
 
 AForm &AForm::operator=(const AForm &rhs) {
   if (this == &rhs) return *this;
-
   this->isSigned_ = rhs.isSigned_;
   return *this;
 }
@@ -41,14 +43,6 @@ int AForm::getGradeForSigned() const { return this->gradeForSign_; }
 int AForm::getGradeForExecute() const { return this->gradeForExecute_; }
 
 void AForm::setIsSigned(bool isSigned) { this->isSigned_ = isSigned; }
-
-void AForm::setGradeForSigned(int gradeForSign) {
-  this->gradeForSign_ = gradeForSign;
-}
-
-void AForm::setGradeForExecute(int gradeForExecute) {
-  this->gradeForExecute_ = gradeForExecute;
-}
 
 void AForm::beSigned(Bureaucrat &bureaucrat) {
   if (this->getGradeForSigned() < bureaucrat.getGrade())

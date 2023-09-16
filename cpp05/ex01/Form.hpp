@@ -20,9 +20,9 @@ class Form : public std::exception {
    public:
     virtual const char *what() const throw() { return "Grade is too low"; }
   };
+  Form(/* args */);
 
  public:
-  Form(/* args */);
   Form(const std::string name, int gradeForSign, int gradeForExecute);
   Form(const Form &rhs);
   virtual ~Form() throw();

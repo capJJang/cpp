@@ -1,6 +1,5 @@
 #include "RobotomyRequestForm.hpp"
 
-#include <fstream>
 #include <iostream>
 
 #include "Bureaucrat.hpp"
@@ -14,7 +13,7 @@ RobotomyRequestForm::~RobotomyRequestForm() throw() {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-    : AForm("Shurubbery", 72, 45), target_(target) {
+    : AForm("Robotomy Request", 72, 45), target_(target) {
   std::cout << "Robotomy Request form conversion constructor called"
             << std::endl;
 }
@@ -29,8 +28,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(
     const RobotomyRequestForm &rhs) {
   if (this == &rhs) return *this;
   this->setIsSigned(rhs.getIsSigned());
-  this->setGradeForSigned(rhs.getGradeForSigned());
-  this->setGradeForExecute(rhs.getGradeForExecute());
   return *this;
 }
 
@@ -45,6 +42,5 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     std::cout << this->target_ << " Robomomized failed.." << std::endl;
   else
     std::cout << this->target_ << " Robomomized success" << std::endl;
-  // failed
   // std::cout << "n : " << n << std::endl;
 }
