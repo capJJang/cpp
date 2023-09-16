@@ -10,14 +10,14 @@ Bureaucrat::Bureaucrat(/* args */) {
 }
 
 Bureaucrat::~Bureaucrat() throw() {
-  std::cout << "Bureaucrat" << this->name_ << " Desstructor called"
+  std::cout << "Bureaucrat " << this->name_ << " Desstructor called"
             << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name) {
   try {
-    if (grade < 1) throw Bureaucrat::GradeTooLowException();
-    if (grade > 150) throw Bureaucrat::GradeTooHighException();
+    if (grade < 1) throw Bureaucrat::GradeTooHighException();
+    if (grade > 150) throw Bureaucrat::GradeTooLowException();
     this->grade_ = grade;
   } catch (const std::exception &e) {
     std::cerr << e.what() << '\n';
@@ -43,13 +43,12 @@ std::string Bureaucrat::getName() const { return (this->name_); }
 int Bureaucrat::getGrade() const { return (this->grade_); }
 
 void Bureaucrat::incrementGrade(int amount) {
-  if (this->getGrade() - amount > 150)
-    throw Bureaucrat::GradeTooHighException();
+  if (this->getGrade() - amount > 150) throw Bureaucrat::GradeTooLowException();
   this->grade_ -= amount;
 }
 
 void Bureaucrat::decrementGrade(int amount) {
-  if (this->getGrade() + amount < 1) throw Bureaucrat::GradeTooLowException();
+  if (this->getGrade() + amount < 1) throw Bureaucrat::GradeTooHighException();
   this->grade_ += amount;
 }
 

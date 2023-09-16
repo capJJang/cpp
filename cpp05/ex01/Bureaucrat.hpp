@@ -24,6 +24,7 @@ class Bureaucrat : public std::exception {
     virtual const char *what() const throw() { return "Grade is too low"; }
   };
 
+ public:
   Bureaucrat(/* args */);
   Bureaucrat(std::string name, int grade);
   virtual ~Bureaucrat() throw();

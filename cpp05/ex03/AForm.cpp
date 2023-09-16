@@ -27,8 +27,7 @@ AForm::AForm(const AForm &rhs) {
 
 AForm &AForm::operator=(const AForm &rhs) {
   if (this == &rhs) return *this;
-  this->gradeForExecute_ = rhs.gradeForExecute_;
-  this->gradeForSign_ = rhs.gradeForSign_;
+
   this->isSigned_ = rhs.isSigned_;
   return *this;
 }

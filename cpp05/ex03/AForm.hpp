@@ -13,8 +13,8 @@ class AForm : public std::exception {
  private:
   const std::string name_;
   bool isSigned_;
-  int gradeForSign_;
-  int gradeForExecute_;
+  const int gradeForSign_;
+  const int gradeForExecute_;
 
   class GradeTooLowException : public std::exception {
    public:

@@ -7,16 +7,12 @@ int main() {
   std::cout << "-------------------------------" << std::endl;
   Bureaucrat test2("test2", 150);
   std::cout << "-------------------------------" << std::endl;
-  try {
+  {
     Bureaucrat test3("test3", 0);
-  } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
-  }
-  std::cout << "-------------------------------" << std::endl;
-  try {
-    Bureaucrat test3("test4", 151);
-  } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
+
+    std::cout << "-------------------------------" << std::endl;
+    Bureaucrat test4("test4", 151);
+    // test3.decrementGrade(2);
   }
   std::cout << "----------------test1 decrement---------------" << std::endl;
   try {

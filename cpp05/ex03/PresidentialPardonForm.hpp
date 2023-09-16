@@ -1,5 +1,5 @@
-#ifndef PresidentialPardonForm_HPP
-#define PresidentialPardonForm_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include <string>
 
@@ -7,10 +7,6 @@
 
 class PresidentialPardonForm : public AForm {
  private:
-  class RobotomizedFailedException : public std::exception {
-   public:
-    virtual const char *what() const throw() { return "Robotomized failed"; }
-  };
   std::string target_;
 
  public:

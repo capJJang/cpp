@@ -19,15 +19,18 @@ Form::Form(const std::string name, int gradeForSign, int gradeForExecute)
   std::cout << "Form " << name << " conversion constructor called" << std::endl;
 }
 
-Form::Form(const Form &rhs) {
+Form::Form(const Form &rhs)
+    : name_(rhs.getName()),
+      isSigned_(false),
+      gradeForSign_(rhs.getGradeForSigned()),
+      gradeForExecute_(rhs.getGradeForExecute()) {
   std::cout << "Copy constructor called" << std::endl;
   *this = rhs;
 }
 
 Form &Form::operator=(const Form &rhs) {
   if (this == &rhs) return *this;
-  this->gradeForExecute_ = rhs.gradeForExecute_;
-  this->gradeForSign_ = rhs.gradeForSign_;
+
   this->isSigned_ = rhs.isSigned_;
   return *this;
 }
