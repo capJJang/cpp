@@ -7,10 +7,6 @@
 
 class PresidentialPardonForm : public AForm {
  private:
-  class RobotomizedFailedException : public std::exception {
-   public:
-    virtual const char *what() const throw() { return "Robotomized failed"; }
-  };
   std::string target_;
 
  public:

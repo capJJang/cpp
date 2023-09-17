@@ -33,8 +33,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(
 
 // 코드 중복 줄이는 방법...?
 
+const char *RobotomyRequestForm::RobotomizedFailedException::what() const
+    throw() {
+  return "Robotomized failed";
+}
+
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-  if (this->getIsSigned() == false) throw AForm::FormNotSigned();
+  if (this->getIsSigned() == false) throw AForm::FormNotSignedException();
   if (this->getGradeForExecute() < executor.getGrade())
     throw Bureaucrat::GradeTooLowException();
 

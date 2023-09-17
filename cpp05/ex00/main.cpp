@@ -16,14 +16,14 @@ int main() {
 
   std::cout << "----------------test1 decrement---------------" << std::endl;
   try {
-    test1.decrementGrade(1);
+    test1.incrementGrade(1);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }
   std::cout << test1 << std::endl;
   std::cout << "----------------test2 increment---------------" << std::endl;
   try {
-    test2.incrementGrade(1);
+    test2.decrementGrade(1);
   } catch (const std::exception& e) {
     std::cerr << e.what() << '\n';
   }

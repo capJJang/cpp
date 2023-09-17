@@ -13,7 +13,7 @@ PresidentialPardonForm::~PresidentialPardonForm() throw() {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-    : AForm("Presidential Pardon", 72, 45), target_(target) {
+    : AForm("Presidential Pardon", 25, 5), target_(target) {
   std::cout << "Presidential pardon form conversion constructor called"
             << std::endl;
 }
@@ -35,7 +35,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(
 // 코드 중복 줄이는 방법...?
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const {
-  if (this->getIsSigned() == false) throw AForm::FormNotSigned();
+  if (this->getIsSigned() == false) throw AForm::FormNotSignedException();
   if (this->getGradeForExecute() < executor.getGrade())
     throw Bureaucrat::GradeTooLowException();
 

@@ -2,14 +2,13 @@
 #define AFORM_HPP
 
 #include <exception>
-#include <ostream>
 #include <string>
 
 // #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class AForm : public std::exception {
+class AForm {
  private:
   const std::string name_;
   bool isSigned_;
@@ -18,13 +17,13 @@ class AForm : public std::exception {
 
   class GradeTooLowException : public std::exception {
    public:
-    virtual const char *what() const throw() { return "Grade is too low"; }
+    virtual const char *what() const throw();
   };
 
  protected:
-  class FormNotSigned : public std::exception {
+  class FormNotSignedException : public std::exception {
    public:
-    virtual const char *what() const throw() { return "Form not signed"; }
+    virtual const char *what() const throw();
   };
 
  public:

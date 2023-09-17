@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name) {
     std::cerr << e.what() << '\n';
   }
 
-  std::cout << "Bureaucra t" << this->name_ << " Conversion constructor called"
+  std::cout << "Bureaucrat " << this->name_ << " Conversion constructor called"
             << std::endl;
 }
 
@@ -38,18 +38,27 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
   return *this;
 }
 
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+  return "Grade is too high";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+  return "Grade is too low";
+}
+
 std::string Bureaucrat::getName() const { return (this->name_); }
 
 int Bureaucrat::getGrade() const { return (this->grade_); }
 
 void Bureaucrat::incrementGrade(int amount) {
-  if (this->getGrade() - amount > 150)
-    throw Bureaucrat::GradeTooLowException();
+  if (this->getGrade() - amount < 1) throw Bureaucrat::GradeTooLowException();
+  if (this->getGrade() + amount > 150) throw Bureaucrat::GradeTooLowException();
   this->grade_ -= amount;
 }
 
 void Bureaucrat::decrementGrade(int amount) {
-  if (this->getGrade() + amount < 1) throw Bureaucrat::GradeTooHighException();
+  if (this->getGrade() + amount > 150) throw Bureaucrat::GradeTooLowException();
+  if (this->getGrade() - amount < 1) throw Bureaucrat::GradeTooLowException();
   this->grade_ += amount;
 }
 

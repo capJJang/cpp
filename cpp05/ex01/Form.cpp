@@ -28,6 +28,10 @@ Form::Form(const Form &rhs)
   *this = rhs;
 }
 
+const char *Form::GradeTooLowException::what() const throw() {
+  return "Grade Too Low";
+}
+
 Form &Form::operator=(const Form &rhs) {
   if (this == &rhs) return *this;
   this->isSigned_ = rhs.getIsSigned();

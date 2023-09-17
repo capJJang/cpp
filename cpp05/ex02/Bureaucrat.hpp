@@ -8,7 +8,7 @@
 // #include "AForm.hpp"
 class AForm;
 
-class Bureaucrat : public std::exception {
+class Bureaucrat {
  private:
   const std::string name_;
   int grade_;
@@ -16,12 +16,12 @@ class Bureaucrat : public std::exception {
  public:
   class GradeTooHighException : public std::exception {
    public:
-    virtual const char *what() const throw() { return "Grade is too high"; }
+    virtual const char *what() const throw();
   };
 
   class GradeTooLowException : public std::exception {
    public:
-    virtual const char *what() const throw() { return "Grade is too low"; }
+    virtual const char *what() const throw();
   };
 
   Bureaucrat(/* args */);

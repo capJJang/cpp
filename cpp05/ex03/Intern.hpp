@@ -6,7 +6,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-class Intern : public std::exception {
+class Intern {
  private:
   class InvalidFormNameException : public std::exception {
    public:

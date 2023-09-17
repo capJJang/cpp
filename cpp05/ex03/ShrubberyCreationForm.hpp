@@ -1,6 +1,7 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include <ostream>
 #include <string>
 
 #include "AForm.hpp"

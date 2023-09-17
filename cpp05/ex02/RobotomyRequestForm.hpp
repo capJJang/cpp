@@ -9,7 +9,7 @@ class RobotomyRequestForm : public AForm {
  private:
   class RobotomizedFailedException : public std::exception {
    public:
-    virtual const char *what() const throw() { return "Robotomized failed"; }
+    virtual const char *what() const throw();
   };
   std::string target_;
 
