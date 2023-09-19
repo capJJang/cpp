@@ -10,7 +10,7 @@ class Intern {
  private:
   class InvalidFormNameException : public std::exception {
    public:
-    virtual const char *what() const throw() { return "Invalid form name"; }
+    virtual const char *what() const throw();
   };
 
   AForm *makeShrubberyCreationForm(std::string target);

@@ -8,14 +8,18 @@ Intern::~Intern() throw() {
   std::cout << "Intern destructor called" << std::endl;
 }
 
-Intern::Intern(const Intern& rhs) {
+Intern::Intern(const Intern &rhs) {
   (void)rhs;
   std::cout << "Intern conversion Constructor called" << std::endl;
 }
 
-Intern& Intern::operator=(const Intern& rhs) {
+Intern &Intern::operator=(const Intern &rhs) {
   (void)rhs;
   return *this;
+}
+
+const char *Intern::InvalidFormNameException::what() const throw() {
+  return "Invalid form name";
 }
 
 AForm *Intern::makeShrubberyCreationForm(std::string target) {
@@ -30,15 +34,15 @@ AForm *Intern::makePresidentialPardonForm(std::string target) {
   return new PresidentialPardonForm(target);
 }
 
-AForm* Intern::makeForm(std::string name, std::string target) {
+AForm *Intern::makeForm(std::string name, std::string target) {
   int i = 0;
   std::string candidateForm[3] = {"shrubbery creation", "robotomy request",
                                   "presidential pardon"};
-AForm *(Intern::*candidateMethod[3])(std::string) = {
-    &Intern::makeShrubberyCreationForm,
-    &Intern::makeRobotomyRuquestForm,
-    &Intern::makePresidentialPardonForm,
-};
+  AForm *(Intern::*candidateMethod[3])(std::string) = {
+      &Intern::makeShrubberyCreationForm,
+      &Intern::makeRobotomyRuquestForm,
+      &Intern::makePresidentialPardonForm,
+  };
 
   while (i < 4) {
     if (name == candidateForm[i]) break;
