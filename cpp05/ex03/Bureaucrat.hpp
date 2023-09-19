@@ -32,8 +32,8 @@ class Bureaucrat {
   std::string getName() const;
   int getGrade() const;
 
-  void incrementGrade(int amount);
-  void decrementGrade(int amount);
+  void incrementGrade(long amount);
+  void decrementGrade(long amount);
   void signAForm(AForm &AForm);  // pointer or reference..?
   void executeAForm(AForm const &aForm);
 };

@@ -1,0 +1,9 @@
+{
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/Users/segan/cpp/cpp06/ex00",
+			"binaryPath": "/Users/segan/cpp/cpp06/ex00/converter",
+			"binaryArgs": ["A"]
+		}
+	]
+}
