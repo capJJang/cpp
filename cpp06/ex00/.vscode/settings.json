@@ -1,9 +1,12 @@
 {
 	"makefile.launchConfigurations": [
 		{
-			"cwd": "/Users/segan/cpp/cpp06/ex00",
-			"binaryPath": "/Users/segan/cpp/cpp06/ex00/converter",
-			"binaryArgs": ["A"]
+			"cwd": "/mnt/d/42SEOUL/cpp/cpp06/ex00",
+			"binaryPath": "/mnt/d/42SEOUL/cpp/cpp06/ex00/converter",
+			"binaryArgs": ["42"]
 		}
-	]
+	],
+	"files.associations": {
+		"iosfwd": "cpp"
+	}
 }
