@@ -11,6 +11,12 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &rhs) {
   return *this;
 }
 
+bool ScalarConverter::isPseudoLiteral(const std::string &userInput) {
+  return (userInput == "nan" || userInput == "nanf"|| userInput == "inf" || userInput == "+inf" ||
+          userInput == "+inf" || userInput == "inff" || userInput == "+inff" ||
+          userInput == "-inff");
+}
+
 std::string ScalarConverter::toChar(std::string &userInput) {
   std::stringstream ss(userInput);
   int tempChar;
@@ -71,17 +77,16 @@ std::string ScalarConverter::toFloat(std::string &userInput) {
   float tempFloat;
 
   ss >> tempFloat;
-  if (ss.fail()) {
+  if (isPseudoLiteral(userInput) == true) {
+    ret = userInput;
+  } else if (ss.fail()) {
     if (userInput.length() == 1) {
       tempFloat = static_cast<float>(userInput[0]);
       ret = floatToString(tempFloat);
     } else
       ret = "Impossible";
   } else {
-    ss.clear();
-    ss.str("");
-    ss << tempFloat;
-    ret = ss.str();
+    ret = floatToString(tempFloat);
     if (detectFraction(tempFloat)) ret += ".0";
     ret += "f";
   }
@@ -108,10 +113,7 @@ std::string ScalarConverter::toDouble(std::string &userInput) {
     } else
       ret = "Impossible";
   } else {
-    ss.clear();
-    ss.str("");
-    ss << tempDouble;
-    ret = ss.str();
+    ret = doubleToString(tempDouble);
     if (detectFraction(tempDouble)) ret += ".0";
   }
   return ("double: " + ret);
@@ -127,25 +129,3 @@ void ScalarConverter::converter(std::string &userInput) {
   std::cout << toFloat(userInput) << std::endl;
   std::cout << toDouble(userInput) << std::endl;
 }
-
-/*
-nan
-char: impossible
-int: impossible
-float: nanf
-double: nan
-
-42.0f
-char: '*'
-int: 42
-float: 42.0f
-double: 42.0
-
-0
-char: Non displayable
-int: 0
-float: 0.0f
-double: 0.0
-
-testcases  2147483647 -2147483648
-*/

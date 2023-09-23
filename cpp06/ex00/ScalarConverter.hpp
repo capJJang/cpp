@@ -19,6 +19,7 @@ class ScalarConverter {
   static std::string toDouble(std::string &userInput);
   static std::string doubleToString(double &tempDouble);
   static bool detectFraction(double target);
+  static bool isPseudoLiteral(const std::string &userInput);
 
  public:
   static void converter(std::string &userInput);
