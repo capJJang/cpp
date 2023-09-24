@@ -1,3 +1,6 @@
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
+
 #include <exception>
 #include <iostream>
 #include <limits>
@@ -19,8 +22,12 @@ class ScalarConverter {
   static std::string toDouble(std::string &userInput);
   static std::string doubleToString(double &tempDouble);
   static bool detectFraction(double target);
+  static bool formatChecker(std::string &userInput);
   static bool isPseudoLiteral(const std::string &userInput);
+  static bool isPseudoLiteralF(const std::string &userInput);
 
  public:
   static void converter(std::string &userInput);
 };
+
+#endif
