@@ -1,10 +1,10 @@
-NAME = converter
+NAME = a.out
 
 CC = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98# -g -fsanitize=address
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp utils.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
