@@ -43,7 +43,8 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
   if (this->getGradeForExecute() < executor.getGrade())
     throw Bureaucrat::GradeTooLowException();
 
-  if (reinterpret_cast<unsigned long>(&executor) / 10 % 2 == 0)
+  int test = 1;
+  if (reinterpret_cast<unsigned long>(&test) / 10 % 2 == 0)
     std::cout << this->target_ << " Robomomized failed.." << std::endl;
   else
     std::cout << this->target_ << " Robomomized success" << std::endl;
