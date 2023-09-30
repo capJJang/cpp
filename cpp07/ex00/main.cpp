@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "whatever.h"
+#include "whatever.hpp"
 
 int main(void) {
   int a = 2;
