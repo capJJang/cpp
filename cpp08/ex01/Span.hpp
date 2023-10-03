@@ -2,6 +2,7 @@
 #define SPAN_HPP
 
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <set>
 #include <stdexcept>
@@ -20,10 +21,11 @@ class Span {
   ~Span();
   Span &operator=(const Span &rhs);
 
-  int getI() { return this->i; }
-  int getN() { return this->N; }
-
-  void addNumber(const int &num);
+  void addNumber(const int num);
+  // void my_for_each(std::set<int>::iterator first, std::set<int>::iterator
+  // last,
+  //  void (*f)(int &));
+  void fillSet();
   int shortestSpan();
   int longestSpan();
 };

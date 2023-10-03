@@ -13,9 +13,9 @@
 // }
 
 int main() {
-  Span sp(5);
-  sp.addNumber(-1);
-  sp.addNumber(1);
+  Span sp(100);
+  sp.fillSet();
+
   try {
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
