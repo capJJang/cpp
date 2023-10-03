@@ -28,8 +28,7 @@ int Span::shortestSpan() {
   int minDifference = INT_MAX;
   int prevValue = *s.begin();
 
-  for (std::set<int>::const_iterator it = std::next(s.begin()); it != s.end();
-       ++it) {
+  for (std::set<int>::const_iterator it = ++s.begin(); it != s.end(); ++it) {
     int currentValue = *it;
     int difference = currentValue - prevValue;
     minDifference = std::min(minDifference, difference);
