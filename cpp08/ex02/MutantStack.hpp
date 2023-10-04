@@ -1,34 +1,25 @@
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
-#include <deque>
+#include <iostream>
 #include <stack>
 
-#include "iostream"
-
 template <typename T>
-class MutantStack {
- private:
-  std::deque<T> d;
-
+class MutantStack : public std::stack<T> {
  public:
-  MutantStack(/* args */) {}
-  ~MutantStack() {}
-  MutantStack(const MutantStack &rhs) { *this = rhs; }
-  MutantStack &operator=(const MutantStack &rhs) {
-    if (this == &rhs) return;
-    this->d = rhs.d;
-    return *this;
-  }
+  typedef typename std::deque<T>::iterator iterator;
+  typedef typename std::deque<T>::reverse_iterator reverse_iterator;
+  typedef typename std::deque<T>::const_iterator const_iterator;
+  typedef typename std::deque<T>::const_reverse_iterator const_reverse_iterator;
 
-  class iterator {};
-
-  void push(const T &target) { d.push_back(target); }
-  void pop() { d.pop_back(); }
-  const T &top() const { return d.back(); }
-  size_t size() { return d.size(); }
-  iterator begin() { return d.begin(); }
-  iterator end() { return d.end(); }
+  iterator begin() { return this->c.begin(); }
+  iterator end() { return this->c.end(); }
+  reverse_iterator rbegin() { return this->c.rbegin(); }
+  reverse_iterator rend() { return this->c.rend(); }
+  const_iterator begin() const { return this->c.begin(); }
+  const_iterator end() const { return this->c.end(); }
+  const_reverse_iterator rbegin() const { return this->c.rbegin(); }
+  const_reverse_iterator rend() const { return this->c.rend(); }
 };
 
 #endif
