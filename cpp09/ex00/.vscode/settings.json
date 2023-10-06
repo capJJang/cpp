@@ -67,5 +67,12 @@
 		"utility": "cpp",
 		"vector": "cpp",
 		"filesystem": "cpp"
-	}
+	},
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/Users/segan/cpp/cpp09/ex00",
+			"binaryPath": "/Users/segan/cpp/cpp09/ex00/a.out",
+			"binaryArgs": ["input.txt"]
+		}
+	]
 }
