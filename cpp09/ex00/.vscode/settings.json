@@ -1,6 +1,7 @@
 {
 	"files.associations": {
-		"iosfwd": "cpp",
+		"string": "cpp",
+		"ostream": "cpp",
 		"__bit_reference": "cpp",
 		"__config": "cpp",
 		"__debug": "cpp",
@@ -41,6 +42,7 @@
 		"initializer_list": "cpp",
 		"iomanip": "cpp",
 		"ios": "cpp",
+		"iosfwd": "cpp",
 		"iostream": "cpp",
 		"istream": "cpp",
 		"iterator": "cpp",
@@ -51,13 +53,11 @@
 		"mutex": "cpp",
 		"new": "cpp",
 		"optional": "cpp",
-		"ostream": "cpp",
 		"ratio": "cpp",
 		"sstream": "cpp",
 		"stack": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"string": "cpp",
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"tuple": "cpp",
@@ -67,12 +67,5 @@
 		"utility": "cpp",
 		"vector": "cpp",
 		"filesystem": "cpp"
-	},
-	"makefile.launchConfigurations": [
-		{
-			"cwd": "/Users/segan/cpp/cpp09/ex00",
-			"binaryPath": "/Users/segan/cpp/cpp09/ex00/a.out",
-			"binaryArgs": ["input.txt"]
-		}
-	]
+	}
 }
