@@ -66,6 +66,18 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"filesystem": "cpp"
-	}
+		"filesystem": "cpp",
+		"*.tcc": "cpp",
+		"clocale": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp"
+	},
+	"makefile.launchConfigurations": [
+		{
+			"cwd": "/mnt/d/42SEOUL/cpp/cpp09/ex00",
+			"binaryPath": "/mnt/d/42SEOUL/cpp/cpp09/ex00/btc",
+			"binaryArgs": ["input.txt"]
+		}
+	]
 }

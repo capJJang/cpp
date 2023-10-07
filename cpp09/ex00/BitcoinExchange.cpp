@@ -20,6 +20,11 @@ void BitcoinExchange::initExchanger(const std::string &userInput) {
   inputParser(userInput);
 }
 
+void BitcoinExchange::errFileCorrupted() {
+  std::cerr << "File corrupted" << std::endl;
+  exit(1);
+}
+
 float BitcoinExchange::toFloat(std::string &userInput) {
   std::stringstream ss(userInput);
   float ret;
@@ -47,12 +52,20 @@ bool BitcoinExchange::isValidDate(const std::string &date) {
   return true;
 }
 
-bool BitcoinExchange::isValidValue(const std::string &value) {
+bool BitcoinExchange::isValidValueForExchangeRate(const std::string &value) {
   std::stringstream ss(value);
   float floatValue;
 
   ss >> floatValue;
-  return !ss.fail();
+  return !ss.fail() && floatValue >= 0;
+}
+
+bool BitcoinExchange::isValidValueForInput(const std::string &value) {
+  std::stringstream ss(value);
+  float floatValue;
+
+  ss >> floatValue;
+  return !ss.fail() && (floatValue >= 0 && floatValue <= 1000);
 }
 
 void BitcoinExchange::exchangeRateReader() {
@@ -68,23 +81,14 @@ void BitcoinExchange::exchangeRateReader() {
   }
 
   std::getline(is, inputBuffer);
-  if (inputBuffer != "date,exchange_rate") {
-    std::cerr << "File corrupted." << std::endl;
-    exit(1);
-  }
+  if (inputBuffer != "date,exchange_rate") errFileCorrupted();
   while (std::getline(is, inputBuffer)) {
     key = inputBuffer.substr(0, 10);
     value = inputBuffer.substr(11, inputBuffer.size() - 1);
-    if ((isValidDate(key) && isValidValue(value)) == false) {
-      std::cerr << "File corrupted." << std::endl;
-      exit(1);
-    }
+    if ((isValidDate(key) && isValidValueForExchangeRate(value)) == false)
+      errFileCorrupted();
     exchangeRate.insert(std::make_pair(key, toFloat(value)));
   }
-  // for (std::map<std::string, float>::const_iterator it =
-  // exchangeRate.begin();
-  //      it != exchangeRate.end(); ++it)
-  //   std::cout << it->first << " | " << it->second << std::endl;
 }
 
 void BitcoinExchange::inputParser(const std::string &userInput) {
@@ -93,26 +97,23 @@ void BitcoinExchange::inputParser(const std::string &userInput) {
   std::string delimeter;
   std::string inputBuffer;
 
-  std::ifstream is(userInput);
+  std::ifstream is(userInput.c_str());
   if (is.is_open() == false) {
     std::cerr << userInput << " open failed" << std::endl;
     exit(1);
   }
   std::getline(is, inputBuffer);
-  if (inputBuffer != "date | value") {
-    std::cerr << "File corrupted." << std::endl;
-    exit(1);
-  }
+  if (inputBuffer != "date | value") errFileCorrupted();
   while (std::getline(is, inputBuffer)) {
     key = inputBuffer.substr(0, 10);
+    if (!isValidDate(key)) errFileCorrupted();
     value = inputBuffer.substr(13, inputBuffer.size() - 1);
     delimeter = inputBuffer.substr(10, 3);
-    std::cout << delimeter << std::endl;
-    if ((isValidDate(key) && isValidValue(value)) == false) {
-      std::cerr << "File corrupted." << std::endl;
-      exit(1);
-    }
-    exchangeRate.insert(std::make_pair(key, toFloat(value)));
+    if (delimeter != " | ") errFileCorrupted();
+    if (isValidValueForInput(value) == false) errFileCorrupted();
+    input.insert(std::make_pair(key, toFloat(value)));
   }
+  // for (std::map<std::string, float>::const_iterator it = input.begin();
+  // it != input.end(); ++it)
+  // std::cout << it->first << " | " << it->second << std::endl;
 }
-// csv 읽어 들이고 -> 입력한 파일 유효성 검사(포맷, 파일 명) ->

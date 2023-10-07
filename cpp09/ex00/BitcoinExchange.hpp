@@ -20,10 +20,12 @@ class BitcoinExchange {
 
   void initExchanger(const std::string &userInput);
   bool isValidDate(const std::string &date);
-  bool isValidValue(const std::string &value);
+  bool isValidValueForExchangeRate(const std::string &value);
+  bool isValidValueForInput(const std::string &value);
   float toFloat(std::string &userInput);
   void exchangeRateReader();
   void inputParser(const std::string &userInput);
+  void errFileCorrupted();
 
  public:
   BitcoinExchange(const std::string &userInput);
