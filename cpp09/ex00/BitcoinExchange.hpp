@@ -7,6 +7,7 @@
 #include <iostream>
 #include <map>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 
 class BitcoinExchange {
@@ -21,11 +22,12 @@ class BitcoinExchange {
   void initExchanger(const std::string &userInput);
   bool isValidDate(const std::string &date);
   bool isValidValueForExchangeRate(const std::string &value);
-  bool isValidValueForInput(const std::string &value);
+  const char *isValidValueForInput(const std::string &value);
   float toFloat(std::string &userInput);
   void exchangeRateReader();
   void inputParser(const std::string &userInput);
   void errFileCorrupted();
+  void printRate();
 
  public:
   BitcoinExchange(const std::string &userInput);
