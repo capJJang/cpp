@@ -25,21 +25,28 @@ void BitcoinExchange::initExchanger(const std::string &userInput) {
   printRate();
 }
 
-void BitcoinExchange::errFileCorrupted() {
-  std::cerr << "File corrupted" << std::endl;
-  exit(1);
-}
-
 void BitcoinExchange::printRate() {
-  typedef typename std::map<std::string, float>::const_iterator const_iterator;
-  for (const_iterator it = input.begin(); it != input.end(); ++it) {
+  std::map<std::string, float>::iterator inputIt;
+  std::map<std::string, float>::iterator rateIt;
+  for (inputIt = input.begin(); inputIt != input.end(); ++inputIt) {
     try {
-      const_iterator node = exchangeRate.find(it->first);
-      if (node->first == "Invalid delimeter")
-        throw std::runtime_error(node->first);
-      if (!isValidDate(it->first) || !isValidDate(node->first))
-        throw std::runtime_error("Error: bad input => " + it->first);
-
+      rateIt = exchangeRate.lower_bound(inputIt->first);
+      std::cout << "rateIT : " << rateIt->first <<"\tinputIt : " << inputIt->first<<std::endl;
+      if (!isValidDate(inputIt->first) || !isValidDate(rateIt->first))
+        throw std::runtime_error("Error: bad input => " + inputIt->first);
+      if (inputIt->first == "Invalid delimeter")
+        throw std::runtime_error(rateIt->first);
+      if (isValidValue(inputIt->second) == -1.0f ||
+          isValidValue(rateIt->second) == -1.0f)
+        throw std::runtime_error("Error: too large number.");
+      if (isValidValue(inputIt->second) == -2.0f ||
+          isValidValue(rateIt->second) == -2.0f)
+        throw std::runtime_error("Error: not a positive number.");
+      if (isValidValue(inputIt->second) == -3.0f ||
+          isValidValue(rateIt->second) == -3.0f)
+        throw std::runtime_error("Error: invlaid format");
+      std::cout << inputIt->first << " => " << inputIt->second << " = "
+                << inputIt->second * rateIt->second << std::endl;
     } catch (const std::exception &e) {
       std::cerr << e.what() << '\n';
     }
@@ -51,6 +58,7 @@ float BitcoinExchange::toFloat(std::string &userInput) {
   float ret;
 
   ss >> ret;
+  if (ss.fail()) ret = -3.0f;
   return ret;
 }
 
@@ -72,22 +80,10 @@ bool BitcoinExchange::isValidDate(const std::string &date) {
   return true;
 }
 
-bool BitcoinExchange::isValidValueForExchangeRate(const std::string &value) {
-  std::stringstream ss(value);
-  float floatValue;
-
-  ss >> floatValue;
-  return !ss.fail() && floatValue >= 0;
-}
-
-const char *BitcoinExchange::isValidValueForInput(const std::string &value) {
-  std::stringstream ss(value);
-  float floatValue;
-
-  ss >> floatValue;
-  if (floatValue > 1000) return "Error: too large a number.";
-  if (floatValue < 0) return "Error: not a positive number.";
-  return NULL;
+float BitcoinExchange::isValidValue(const float value) {
+  if (value < 0) return -1.0f;
+  if (value > 1000) return -2.0f;
+  return value;
 }
 
 void BitcoinExchange::exchangeRateReader() {
@@ -103,12 +99,13 @@ void BitcoinExchange::exchangeRateReader() {
   }
 
   std::getline(is, inputBuffer);
-  // if (inputBuffer != "date,exchange_rate") errFileCorrupted();
   while (std::getline(is, inputBuffer)) {
+    if (inputBuffer.size() < 11) {
+      value = -3;
+      continue;
+    }
     key = inputBuffer.substr(0, 10);
     value = inputBuffer.substr(11, inputBuffer.size() - 1);
-    // if ((isValidDate(key) && isValidValueForExchangeRate(value)) == false)
-    //   errFileCorrupted();
     exchangeRate.insert(std::make_pair(key, toFloat(value)));
   }
 }
@@ -125,13 +122,15 @@ void BitcoinExchange::inputParser(const std::string &userInput) {
     exit(1);
   }
   std::getline(is, inputBuffer);
-  if (inputBuffer != "date | value") errFileCorrupted();
   while (std::getline(is, inputBuffer)) {
+    if (inputBuffer.size() < 11) {
+      value = -3;
+      continue;
+    }
     key = inputBuffer.substr(0, 10);
     value = inputBuffer.substr(13, inputBuffer.size() - 1);
     delimeter = inputBuffer.substr(10, 3);
     if (delimeter != " | ") key = "Invalid delimeter";
-    // if (isValidValueForInput(value) == false) errFileCorrupted();
     input.insert(std::make_pair(key, toFloat(value)));
   }
 }

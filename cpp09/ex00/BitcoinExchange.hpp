@@ -10,6 +10,10 @@
 #include <stdexcept>
 #include <string>
 
+#define NEGATIVE_VALUE -1
+#define NUMBER_TOO_LARGE -2
+#define BAD_INPUT -3
+
 class BitcoinExchange {
  private:
   std::map<std::string, float> exchangeRate;
@@ -20,13 +24,12 @@ class BitcoinExchange {
   BitcoinExchange &operator=(const BitcoinExchange &rhs);
 
   void initExchanger(const std::string &userInput);
+  // void extract(const std::string &src, std::string &dest, const char *c);
   bool isValidDate(const std::string &date);
-  bool isValidValueForExchangeRate(const std::string &value);
-  const char *isValidValueForInput(const std::string &value);
+  float isValidValue(const float value);
   float toFloat(std::string &userInput);
   void exchangeRateReader();
   void inputParser(const std::string &userInput);
-  void errFileCorrupted();
   void printRate();
 
  public:
