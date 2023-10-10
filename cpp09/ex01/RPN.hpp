@@ -20,6 +20,7 @@ class RPN {
   RPN(std::string &userInput);
   void userInputValidator(const std::string &userInput);
   void start(std::string &userInput);
+  size_t calc(char operand);
 };
 
 #endif

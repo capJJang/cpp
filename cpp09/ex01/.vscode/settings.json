@@ -80,7 +80,7 @@
 		{
 			"cwd": "/mnt/d/42SEOUL/cpp/cpp09/ex01",
 			"binaryPath": "/mnt/d/42SEOUL/cpp/cpp09/ex01/RPN",
-			"binaryArgs": ["8 9 *"]
+			"binaryArgs": ["8 9 * 9 - 9 - 9 - 4 - 1 +"]
 		}
 	]
 }
