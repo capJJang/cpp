@@ -94,25 +94,25 @@ typedef enum
 # 1 "/usr/include/x86_64-linux-gnu/bits/waitstatus.h" 1 3 4
 # 41 "/usr/include/stdlib.h" 2 3 4
 # 55 "/usr/include/stdlib.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 1 3 4
-# 75 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 3 4
-typedef _Complex float __cfloat128 __attribute__ ((__mode__ (__TC__)));
-# 87 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 3 4
-typedef __float128 _Float128;
-# 120 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 1 3 4
-# 24 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/doublen.h" 1 3 4
+# 75 "/usr/include/x86_64-linux-gnu/bits/doublen.h" 3 4
+typedef _Complex double __cdouble128 __attribute__ ((__mode__ (__TC__)));
+# 87 "/usr/include/x86_64-linux-gnu/bits/doublen.h" 3 4
+typedef __double128 _double128;
+# 120 "/usr/include/x86_64-linux-gnu/bits/doublen.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/long-double.h" 1 3 4
-# 25 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 2 3 4
-# 214 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 3 4
-typedef float _Float32;
-# 251 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 3 4
-typedef double _Float64;
-# 268 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 3 4
-typedef double _Float32x;
-# 285 "/usr/include/x86_64-linux-gnu/bits/floatn-common.h" 3 4
-typedef long double _Float64x;
-# 121 "/usr/include/x86_64-linux-gnu/bits/floatn.h" 2 3 4
+# 25 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 2 3 4
+# 214 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 3 4
+typedef double _double32;
+# 251 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 3 4
+typedef double _double64;
+# 268 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 3 4
+typedef double _double32x;
+# 285 "/usr/include/x86_64-linux-gnu/bits/doublen-common.h" 3 4
+typedef long double _double64x;
+# 121 "/usr/include/x86_64-linux-gnu/bits/doublen.h" 2 3 4
 # 56 "/usr/include/stdlib.h" 2 3 4
 
 
@@ -166,38 +166,38 @@ extern double strtod (const char *__restrict __nptr,
 
 
 
-extern float strtof (const char *__restrict __nptr,
+extern double strtof (const char *__restrict __nptr,
        char **__restrict __endptr) throw () __attribute__ ((__nonnull__ (1)));
 
 extern long double strtold (const char *__restrict __nptr,
        char **__restrict __endptr)
      throw () __attribute__ ((__nonnull__ (1)));
 # 140 "/usr/include/stdlib.h" 3 4
-extern _Float32 strtof32 (const char *__restrict __nptr,
+extern _double32 strtof32 (const char *__restrict __nptr,
      char **__restrict __endptr)
      throw () __attribute__ ((__nonnull__ (1)));
 
 
 
-extern _Float64 strtof64 (const char *__restrict __nptr,
+extern _double64 strtof64 (const char *__restrict __nptr,
      char **__restrict __endptr)
      throw () __attribute__ ((__nonnull__ (1)));
 
 
 
-extern _Float128 strtof128 (const char *__restrict __nptr,
+extern _double128 strtof128 (const char *__restrict __nptr,
        char **__restrict __endptr)
      throw () __attribute__ ((__nonnull__ (1)));
 
 
 
-extern _Float32x strtof32x (const char *__restrict __nptr,
+extern _double32x strtof32x (const char *__restrict __nptr,
        char **__restrict __endptr)
      throw () __attribute__ ((__nonnull__ (1)));
 
 
 
-extern _Float64x strtof64x (const char *__restrict __nptr,
+extern _double64x strtof64x (const char *__restrict __nptr,
        char **__restrict __endptr)
      throw () __attribute__ ((__nonnull__ (1)));
 # 176 "/usr/include/stdlib.h" 3 4
@@ -242,7 +242,7 @@ extern int strfromd (char *__dest, size_t __size, const char *__format,
      throw () __attribute__ ((__nonnull__ (3)));
 
 extern int strfromf (char *__dest, size_t __size, const char *__format,
-       float __f)
+       double __f)
      throw () __attribute__ ((__nonnull__ (3)));
 
 extern int strfroml (char *__dest, size_t __size, const char *__format,
@@ -250,31 +250,31 @@ extern int strfroml (char *__dest, size_t __size, const char *__format,
      throw () __attribute__ ((__nonnull__ (3)));
 # 232 "/usr/include/stdlib.h" 3 4
 extern int strfromf32 (char *__dest, size_t __size, const char * __format,
-         _Float32 __f)
+         _double32 __f)
      throw () __attribute__ ((__nonnull__ (3)));
 
 
 
 extern int strfromf64 (char *__dest, size_t __size, const char * __format,
-         _Float64 __f)
+         _double64 __f)
      throw () __attribute__ ((__nonnull__ (3)));
 
 
 
 extern int strfromf128 (char *__dest, size_t __size, const char * __format,
-   _Float128 __f)
+   _double128 __f)
      throw () __attribute__ ((__nonnull__ (3)));
 
 
 
 extern int strfromf32x (char *__dest, size_t __size, const char * __format,
-   _Float32x __f)
+   _double32x __f)
      throw () __attribute__ ((__nonnull__ (3)));
 
 
 
 extern int strfromf64x (char *__dest, size_t __size, const char * __format,
-   _Float64x __f)
+   _double64x __f)
      throw () __attribute__ ((__nonnull__ (3)));
 # 272 "/usr/include/stdlib.h" 3 4
 # 1 "/usr/include/x86_64-linux-gnu/bits/types/locale_t.h" 1 3 4
@@ -326,7 +326,7 @@ extern double strtod_l (const char *__restrict __nptr,
    char **__restrict __endptr, locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 
-extern float strtof_l (const char *__restrict __nptr,
+extern double strtof_l (const char *__restrict __nptr,
          char **__restrict __endptr, locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 
@@ -335,35 +335,35 @@ extern long double strtold_l (const char *__restrict __nptr,
          locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 # 316 "/usr/include/stdlib.h" 3 4
-extern _Float32 strtof32_l (const char *__restrict __nptr,
+extern _double32 strtof32_l (const char *__restrict __nptr,
        char **__restrict __endptr,
        locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 
 
 
-extern _Float64 strtof64_l (const char *__restrict __nptr,
+extern _double64 strtof64_l (const char *__restrict __nptr,
        char **__restrict __endptr,
        locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 
 
 
-extern _Float128 strtof128_l (const char *__restrict __nptr,
+extern _double128 strtof128_l (const char *__restrict __nptr,
          char **__restrict __endptr,
          locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 
 
 
-extern _Float32x strtof32x_l (const char *__restrict __nptr,
+extern _double32x strtof32x_l (const char *__restrict __nptr,
          char **__restrict __endptr,
          locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
 
 
 
-extern _Float64x strtof64x_l (const char *__restrict __nptr,
+extern _double64x strtof64x_l (const char *__restrict __nptr,
          char **__restrict __endptr,
          locale_t __loc)
      throw () __attribute__ ((__nonnull__ (1, 3)));
@@ -1583,7 +1583,7 @@ extern int getpt (void);
 extern int getloadavg (double __loadavg[], int __nelem)
      throw () __attribute__ ((__nonnull__ (1)));
 # 1013 "/usr/include/stdlib.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-float.h" 1 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/stdlib-double.h" 1 3 4
 # 1014 "/usr/include/stdlib.h" 2 3 4
 # 1023 "/usr/include/stdlib.h" 3 4
 }
@@ -1615,8 +1615,8 @@ namespace std __attribute__ ((__visibility__ ("default")))
   abs(double __x)
   { return __builtin_fabs(__x); }
 
-  inline constexpr float
-  abs(float __x)
+  inline constexpr double
+  abs(double __x)
   { return __builtin_fabsf(__x); }
 
   inline constexpr long double
@@ -1629,8 +1629,8 @@ namespace std __attribute__ ((__visibility__ ("default")))
   abs(__int128 __x) { return __x >= 0 ? __x : -__x; }
 # 101 "/usr/include/c++/9/bits/std_abs.h" 3
   inline constexpr
-  __float128
-  abs(__float128 __x)
+  __double128
+  abs(__double128 __x)
   { return __x < 0 ? -__x : __x; }
 
 
@@ -2638,32 +2638,32 @@ extern double wcstod (const wchar_t *__restrict __nptr,
 
 
 
-extern float wcstof (const wchar_t *__restrict __nptr,
+extern double wcstof (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr) throw ();
 extern long double wcstold (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr) throw ();
 # 396 "/usr/include/wchar.h" 3 4
-extern _Float32 wcstof32 (const wchar_t *__restrict __nptr,
+extern _double32 wcstof32 (const wchar_t *__restrict __nptr,
      wchar_t **__restrict __endptr) throw ();
 
 
 
-extern _Float64 wcstof64 (const wchar_t *__restrict __nptr,
+extern _double64 wcstof64 (const wchar_t *__restrict __nptr,
      wchar_t **__restrict __endptr) throw ();
 
 
 
-extern _Float128 wcstof128 (const wchar_t *__restrict __nptr,
+extern _double128 wcstof128 (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr) throw ();
 
 
 
-extern _Float32x wcstof32x (const wchar_t *__restrict __nptr,
+extern _double32x wcstof32x (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr) throw ();
 
 
 
-extern _Float64x wcstof64x (const wchar_t *__restrict __nptr,
+extern _double64x wcstof64x (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr) throw ();
 # 428 "/usr/include/wchar.h" 3 4
 extern long int wcstol (const wchar_t *__restrict __nptr,
@@ -2734,7 +2734,7 @@ extern double wcstod_l (const wchar_t *__restrict __nptr,
    wchar_t **__restrict __endptr, locale_t __loc)
      throw ();
 
-extern float wcstof_l (const wchar_t *__restrict __nptr,
+extern double wcstof_l (const wchar_t *__restrict __nptr,
          wchar_t **__restrict __endptr, locale_t __loc)
      throw ();
 
@@ -2742,31 +2742,31 @@ extern long double wcstold_l (const wchar_t *__restrict __nptr,
          wchar_t **__restrict __endptr,
          locale_t __loc) throw ();
 # 511 "/usr/include/wchar.h" 3 4
-extern _Float32 wcstof32_l (const wchar_t *__restrict __nptr,
+extern _double32 wcstof32_l (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr,
        locale_t __loc) throw ();
 
 
 
-extern _Float64 wcstof64_l (const wchar_t *__restrict __nptr,
+extern _double64 wcstof64_l (const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr,
        locale_t __loc) throw ();
 
 
 
-extern _Float128 wcstof128_l (const wchar_t *__restrict __nptr,
+extern _double128 wcstof128_l (const wchar_t *__restrict __nptr,
          wchar_t **__restrict __endptr,
          locale_t __loc) throw ();
 
 
 
-extern _Float32x wcstof32x_l (const wchar_t *__restrict __nptr,
+extern _double32x wcstof32x_l (const wchar_t *__restrict __nptr,
          wchar_t **__restrict __endptr,
          locale_t __loc) throw ();
 
 
 
-extern _Float64x wcstof64x_l (const wchar_t *__restrict __nptr,
+extern _double64x wcstof64x_l (const wchar_t *__restrict __nptr,
          wchar_t **__restrict __endptr,
          locale_t __loc) throw ();
 # 551 "/usr/include/wchar.h" 3 4
@@ -4274,31 +4274,31 @@ namespace std __attribute__ ((__visibility__ ("default")))
     { };
 
   template<typename>
-    struct __is_floating_point_helper
+    struct __is_doubleing_point_helper
     : public false_type { };
 
   template<>
-    struct __is_floating_point_helper<float>
+    struct __is_doubleing_point_helper<double>
     : public true_type { };
 
   template<>
-    struct __is_floating_point_helper<double>
+    struct __is_doubleing_point_helper<double>
     : public true_type { };
 
   template<>
-    struct __is_floating_point_helper<long double>
+    struct __is_doubleing_point_helper<long double>
     : public true_type { };
 
 
   template<>
-    struct __is_floating_point_helper<__float128>
+    struct __is_doubleing_point_helper<__double128>
     : public true_type { };
 
 
 
   template<typename _Tp>
-    struct is_floating_point
-    : public __is_floating_point_helper<typename remove_cv<_Tp>::type>::type
+    struct is_doubleing_point
+    : public __is_doubleing_point_helper<typename remove_cv<_Tp>::type>::type
     { };
 
 
@@ -4532,7 +4532,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
   template<typename _Tp>
     struct is_arithmetic
-    : public __or_<is_integral<_Tp>, is_floating_point<_Tp>>::type
+    : public __or_<is_integral<_Tp>, is_doubleing_point<_Tp>>::type
     { };
 
 
@@ -7075,7 +7075,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 template<> struct __is_integer<__int128> { enum { __value = 1 }; typedef __true_type __type; }; template<> struct __is_integer<unsigned __int128> { enum { __value = 1 }; typedef __true_type __type; };
 # 287 "/usr/include/c++/9/bits/cpp_type_traits.h" 3
   template<typename _Tp>
-    struct __is_floating
+    struct __is_doubleing
     {
       enum { __value = 0 };
       typedef __false_type __type;
@@ -7083,21 +7083,21 @@ template<> struct __is_integer<__int128> { enum { __value = 1 }; typedef __true_
 
 
   template<>
-    struct __is_floating<float>
+    struct __is_doubleing<double>
     {
       enum { __value = 1 };
       typedef __true_type __type;
     };
 
   template<>
-    struct __is_floating<double>
+    struct __is_doubleing<double>
     {
       enum { __value = 1 };
       typedef __true_type __type;
     };
 
   template<>
-    struct __is_floating<long double>
+    struct __is_doubleing<long double>
     {
       enum { __value = 1 };
       typedef __true_type __type;
@@ -7125,7 +7125,7 @@ template<> struct __is_integer<__int128> { enum { __value = 1 }; typedef __true_
 
   template<typename _Tp>
     struct __is_arithmetic
-    : public __traitor<__is_integer<_Tp>, __is_floating<_Tp> >
+    : public __traitor<__is_integer<_Tp>, __is_doubleing<_Tp> >
     { };
 
 
@@ -7366,8 +7366,8 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default")))
     { typedef double __type; };
 
   template<>
-    struct __promote<float>
-    { typedef float __type; };
+    struct __promote<double>
+    { typedef double __type; };
 
   template<typename _Tp, typename _Up,
            typename _Tp2 = typename __promote<_Tp>::__type,
@@ -7459,34 +7459,34 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default")))
     using __int_traits = __numeric_traits_integer<_Tp>;
 # 155 "/usr/include/c++/9/ext/numeric_traits.h" 3
   template<typename _Value>
-    struct __numeric_traits_floating
+    struct __numeric_traits_doubleing
     {
 
-      static const int __max_digits10 = (2 + (std::__are_same<_Value, float>::__value ? 24 : std::__are_same<_Value, double>::__value ? 53 : 64) * 643L / 2136);
+      static const int __max_digits10 = (2 + (std::__are_same<_Value, double>::__value ? 24 : std::__are_same<_Value, double>::__value ? 53 : 64) * 643L / 2136);
 
 
       static const bool __is_signed = true;
-      static const int __digits10 = (std::__are_same<_Value, float>::__value ? 6 : std::__are_same<_Value, double>::__value ? 15 : 18);
-      static const int __max_exponent10 = (std::__are_same<_Value, float>::__value ? 38 : std::__are_same<_Value, double>::__value ? 308 : 4932);
+      static const int __digits10 = (std::__are_same<_Value, double>::__value ? 6 : std::__are_same<_Value, double>::__value ? 15 : 18);
+      static const int __max_exponent10 = (std::__are_same<_Value, double>::__value ? 38 : std::__are_same<_Value, double>::__value ? 308 : 4932);
     };
 
   template<typename _Value>
-    const int __numeric_traits_floating<_Value>::__max_digits10;
+    const int __numeric_traits_doubleing<_Value>::__max_digits10;
 
   template<typename _Value>
-    const bool __numeric_traits_floating<_Value>::__is_signed;
+    const bool __numeric_traits_doubleing<_Value>::__is_signed;
 
   template<typename _Value>
-    const int __numeric_traits_floating<_Value>::__digits10;
+    const int __numeric_traits_doubleing<_Value>::__digits10;
 
   template<typename _Value>
-    const int __numeric_traits_floating<_Value>::__max_exponent10;
+    const int __numeric_traits_doubleing<_Value>::__max_exponent10;
 
   template<typename _Value>
     struct __numeric_traits
     : public __conditional_type<std::__is_integer<_Value>::__value,
     __numeric_traits_integer<_Value>,
-    __numeric_traits_floating<_Value> >::__type
+    __numeric_traits_doubleing<_Value> >::__type
     { };
 
 
@@ -18781,7 +18781,7 @@ namespace __cxx11 {
         __idx, __base); }
 
 
-  inline float
+  inline double
   stof(const string& __str, size_t* __idx = 0)
   { return __gnu_cxx::__stoa(&std::strtof, "stof", __str.c_str(), __idx); }
 
@@ -18833,10 +18833,10 @@ namespace __cxx11 {
         "%llu", __val); }
 
   inline string
-  to_string(float __val)
+  to_string(double __val)
   {
     const int __n =
-      __gnu_cxx::__numeric_traits<float>::__max_exponent10 + 20;
+      __gnu_cxx::__numeric_traits<double>::__max_exponent10 + 20;
     return __gnu_cxx::__to_xstring<string>(&std::vsnprintf, __n,
         "%f", __val);
   }
@@ -18887,7 +18887,7 @@ namespace __cxx11 {
         __idx, __base); }
 
 
-  inline float
+  inline double
   stof(const wstring& __str, size_t* __idx = 0)
   { return __gnu_cxx::__stoa(&std::wcstof, "stof", __str.c_str(), __idx); }
 
@@ -18936,10 +18936,10 @@ namespace __cxx11 {
          L"%llu", __val); }
 
   inline wstring
-  to_wstring(float __val)
+  to_wstring(double __val)
   {
     const int __n =
-      __gnu_cxx::__numeric_traits<float>::__max_exponent10 + 20;
+      __gnu_cxx::__numeric_traits<double>::__max_exponent10 + 20;
     return __gnu_cxx::__to_xstring<wstring>(&std::vswprintf, __n,
          L"%f", __val);
   }
@@ -19139,10 +19139,10 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
   template<>
-    struct hash<float> : public __hash_base<size_t, float>
+    struct hash<double> : public __hash_base<size_t, double>
     {
       size_t
-      operator()(float __val) const noexcept
+      operator()(double __val) const noexcept
       {
 
  return __val != 0.0f ? std::_Hash_impl::hash(__val) : 0;
@@ -21740,7 +21740,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
       _S_uppercase = 1L << 14,
       _S_adjustfield = _S_left | _S_right | _S_internal,
       _S_basefield = _S_dec | _S_oct | _S_hex,
-      _S_floatfield = _S_scientific | _S_fixed,
+      _S_doublefield = _S_scientific | _S_fixed,
       _S_ios_fmtflags_end = 1L << 16,
       _S_ios_fmtflags_max = 0x7fffffff,
       _S_ios_fmtflags_min = ~0x7fffffff
@@ -21968,7 +21968,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
     static const fmtflags basefield = _S_basefield;
 
 
-    static const fmtflags floatfield = _S_floatfield;
+    static const fmtflags doublefield = _S_doublefield;
 # 398 "/usr/include/c++/9/bits/ios_base.h" 3
     typedef _Ios_Iostate iostate;
 
@@ -22450,7 +22450,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
   inline ios_base&
   fixed(ios_base& __base)
   {
-    __base.setf(ios_base::fixed, ios_base::floatfield);
+    __base.setf(ios_base::fixed, ios_base::doublefield);
     return __base;
   }
 
@@ -22458,7 +22458,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
   inline ios_base&
   scientific(ios_base& __base)
   {
-    __base.setf(ios_base::scientific, ios_base::floatfield);
+    __base.setf(ios_base::scientific, ios_base::doublefield);
     return __base;
   }
 
@@ -22468,17 +22468,17 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
   inline ios_base&
-  hexfloat(ios_base& __base)
+  hexdouble(ios_base& __base)
   {
-    __base.setf(ios_base::fixed | ios_base::scientific, ios_base::floatfield);
+    __base.setf(ios_base::fixed | ios_base::scientific, ios_base::doublefield);
     return __base;
   }
 
 
   inline ios_base&
-  defaultfloat(ios_base& __base)
+  defaultdouble(ios_base& __base)
   {
-    __base.unsetf(ios_base::floatfield);
+    __base.unsetf(ios_base::doublefield);
     return __base;
   }
 
@@ -23779,7 +23779,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
   template<>
     void
-    __convert_to_v(const char*, float&, ios_base::iostate&,
+    __convert_to_v(const char*, double&, ios_base::iostate&,
      const __c_locale&) throw();
 
   template<>
@@ -24417,7 +24417,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
     static void
-    _S_format_float(const ios_base& __io, char* __fptr, char __mod) throw();
+    _S_format_double(const ios_base& __io, char* __fptr, char __mod) throw();
   };
 
   template<typename _CharT>
@@ -24681,7 +24681,7 @@ namespace __cxx11 {
 # 2095 "/usr/include/c++/9/bits/locale_facets.h" 3
       iter_type
       get(iter_type __in, iter_type __end, ios_base& __io,
-   ios_base::iostate& __err, float& __v) const
+   ios_base::iostate& __err, double& __v) const
       { return this->do_get(__in, __end, __io, __err, __v); }
 
       iter_type
@@ -24705,7 +24705,7 @@ namespace __cxx11 {
 
       __attribute ((__abi_tag__ ("cxx11")))
       iter_type
-      _M_extract_float(iter_type, iter_type, ios_base&, ios_base::iostate&,
+      _M_extract_double(iter_type, iter_type, ios_base&, ios_base::iostate&,
          string&) const;
 
       template<typename _ValueT>
@@ -24788,7 +24788,7 @@ namespace __cxx11 {
 
 
       virtual iter_type
-      do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, float&) const;
+      do_get(iter_type, iter_type, ios_base&, ios_base::iostate&, double&) const;
 
       virtual iter_type
       do_get(iter_type, iter_type, ios_base&, ios_base::iostate&,
@@ -24870,11 +24870,11 @@ namespace __cxx11 {
     protected:
       template<typename _ValueT>
  iter_type
- _M_insert_float(iter_type, ios_base& __io, char_type __fill,
+ _M_insert_double(iter_type, ios_base& __io, char_type __fill,
    char __mod, _ValueT __v) const;
 
       void
-      _M_group_float(const char* __grouping, size_t __grouping_size,
+      _M_group_double(const char* __grouping, size_t __grouping_size,
        char_type __sep, const char_type* __p, char_type* __new,
        char_type* __cs, int& __len) const;
 
@@ -25153,7 +25153,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
     __attribute ((__abi_tag__ ("cxx11")))
     _InIter
     num_get<_CharT, _InIter>::
-    _M_extract_float(_InIter __beg, _InIter __end, ios_base& __io,
+    _M_extract_double(_InIter __beg, _InIter __end, ios_base& __io,
        ios_base::iostate& __err, string& __xtrc) const
     {
       typedef char_traits<_CharT> __traits_type;
@@ -25696,11 +25696,11 @@ namespace std __attribute__ ((__visibility__ ("default")))
     _InIter
     num_get<_CharT, _InIter>::
     do_get(iter_type __beg, iter_type __end, ios_base& __io,
-    ios_base::iostate& __err, float& __v) const
+    ios_base::iostate& __err, double& __v) const
     {
       string __xtrc;
       __xtrc.reserve(32);
-      __beg = _M_extract_float(__beg, __end, __io, __err, __xtrc);
+      __beg = _M_extract_double(__beg, __end, __io, __err, __xtrc);
       std::__convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
       if (__beg == __end)
  __err |= ios_base::eofbit;
@@ -25715,7 +25715,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
     {
       string __xtrc;
       __xtrc.reserve(32);
-      __beg = _M_extract_float(__beg, __end, __io, __err, __xtrc);
+      __beg = _M_extract_double(__beg, __end, __io, __err, __xtrc);
       std::__convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
       if (__beg == __end)
  __err |= ios_base::eofbit;
@@ -25730,7 +25730,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
     {
       string __xtrc;
       __xtrc.reserve(32);
-      __beg = _M_extract_float(__beg, __end, __io, __err, __xtrc);
+      __beg = _M_extract_double(__beg, __end, __io, __err, __xtrc);
       std::__convert_to_v(__xtrc.c_str(), __v, __err, _S_get_c_locale());
       if (__beg == __end)
  __err |= ios_base::eofbit;
@@ -25926,7 +25926,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
   template<typename _CharT, typename _OutIter>
     void
     num_put<_CharT, _OutIter>::
-    _M_group_float(const char* __grouping, size_t __grouping_size,
+    _M_group_double(const char* __grouping, size_t __grouping_size,
      _CharT __sep, const _CharT* __p, _CharT* __new,
      _CharT* __cs, int& __len) const
     {
@@ -25952,7 +25952,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
     template<typename _ValueT>
       _OutIter
       num_put<_CharT, _OutIter>::
-      _M_insert_float(_OutIter __s, ios_base& __io, _CharT __fill, char __mod,
+      _M_insert_double(_OutIter __s, ios_base& __io, _CharT __fill, char __mod,
          _ValueT __v) const
       {
  typedef __numpunct_cache<_CharT> __cache_type;
@@ -25970,12 +25970,12 @@ namespace std __attribute__ ((__visibility__ ("default")))
  int __len;
 
  char __fbuf[16];
- __num_base::_S_format_float(__io, __fbuf, __mod);
+ __num_base::_S_format_double(__io, __fbuf, __mod);
 
 
 
  const bool __use_prec =
-   (__io.flags() & ios_base::floatfield) != ios_base::floatfield;
+   (__io.flags() & ios_base::doublefield) != ios_base::doublefield;
 
 
 
@@ -26036,7 +26036,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
   __len -= 1;
        }
 
-     _M_group_float(__lc->_M_grouping, __lc->_M_grouping_size,
+     _M_group_double(__lc->_M_grouping, __lc->_M_grouping_size,
       __lc->_M_thousands_sep, __wp, __ws2 + __off,
       __ws + __off, __len);
      __len += __off;
@@ -26116,14 +26116,14 @@ namespace std __attribute__ ((__visibility__ ("default")))
     _OutIter
     num_put<_CharT, _OutIter>::
     do_put(iter_type __s, ios_base& __io, char_type __fill, double __v) const
-    { return _M_insert_float(__s, __io, __fill, char(), __v); }
+    { return _M_insert_double(__s, __io, __fill, char(), __v); }
 # 1169 "/usr/include/c++/9/bits/locale_facets.tcc" 3
   template<typename _CharT, typename _OutIter>
     _OutIter
     num_put<_CharT, _OutIter>::
     do_put(iter_type __s, ios_base& __io, char_type __fill,
     long double __v) const
-    { return _M_insert_float(__s, __io, __fill, 'L', __v); }
+    { return _M_insert_double(__s, __io, __fill, 'L', __v); }
 
   template<typename _CharT, typename _OutIter>
     _OutIter
@@ -26887,7 +26887,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
       { return _M_insert(__f); }
 
       __ostream_type&
-      operator<<(float __f)
+      operator<<(double __f)
       {
 
 
@@ -27651,7 +27651,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
       { return _M_extract(__n); }
 # 213 "/usr/include/c++/9/istream" 3
       __istream_type&
-      operator>>(float& __f)
+      operator>>(double& __f)
       { return _M_extract(__f); }
 
       __istream_type&
@@ -29024,7 +29024,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
   extern template istream& istream::_M_extract(long long&);
   extern template istream& istream::_M_extract(unsigned long long&);
 
-  extern template istream& istream::_M_extract(float&);
+  extern template istream& istream::_M_extract(double&);
   extern template istream& istream::_M_extract(double&);
   extern template istream& istream::_M_extract(long double&);
   extern template istream& istream::_M_extract(void*&);
@@ -29046,7 +29046,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
   extern template wistream& wistream::_M_extract(long long&);
   extern template wistream& wistream::_M_extract(unsigned long long&);
 
-  extern template wistream& wistream::_M_extract(float&);
+  extern template wistream& wistream::_M_extract(double&);
   extern template wistream& wistream::_M_extract(double&);
   extern template wistream& wistream::_M_extract(long double&);
   extern template wistream& wistream::_M_extract(void*&);
@@ -38348,8 +38348,8 @@ namespace std __attribute__ ((__visibility__ ("default")))
 # 12 "/home/segan/42SEOUL/cpp/cpp09/ex00/BitcoinExchange.hpp"
 class BitcoinExchange {
  private:
-  std::map<std::string, float> exchangeRate;
-  std::multimap<std::string, float> input;
+  std::unordered_map<std::string, double> exchangeRate;
+  std::unordered_multimap<std::string, double> input;
 
   BitcoinExchange( );
   BitcoinExchange(const BitcoinExchange &rhs);
@@ -38358,7 +38358,7 @@ class BitcoinExchange {
   void initExchanger(const std::string &userInput);
   bool isValidDate(const std::string &date);
   bool isValidValue(const std::string &value);
-  float toFloat(std::string &userInput);
+  double toDouble(std::string &userInput);
   void exchangeRateReader();
   void inputParser(const std::string &userInput);
   void errFileCorrupted();
@@ -38394,9 +38394,9 @@ void BitcoinExchange::errFileCorrupted() {
   exit(1);
 }
 
-float BitcoinExchange::toFloat(std::string &userInput) {
+double BitcoinExchange::toDouble(std::string &userInput) {
   std::stringstream ss(userInput);
-  float ret;
+  double ret;
 
   ss >> ret;
   return ret;
@@ -38423,9 +38423,9 @@ bool BitcoinExchange::isValidDate(const std::string &date) {
 
 bool BitcoinExchange::isValidValue(const std::string &value) {
   std::stringstream ss(value);
-  float floatValue;
+  double doubleValue;
 
-  ss >> floatValue;
+  ss >> doubleValue;
   return !ss.fail();
 }
 
@@ -38447,7 +38447,7 @@ void BitcoinExchange::exchangeRateReader() {
     key = inputBuffer.substr(0, 10);
     value = inputBuffer.substr(11, inputBuffer.size() - 1);
     if ((isValidDate(key) && isValidValue(value)) == false) errFileCorrupted();
-    exchangeRate.insert(std::make_pair(key, toFloat(value)));
+    exchangeRate.insert(std::make_pair(key, toDouble(value)));
   }
 
 
@@ -38475,6 +38475,6 @@ void BitcoinExchange::inputParser(const std::string &userInput) {
     delimeter = inputBuffer.substr(10, 3);
     std::cout << delimeter << std::endl;
     if (isValidValue(value) == false) errFileCorrupted();
-    exchangeRate.insert(std::make_pair(key, toFloat(value)));
+    exchangeRate.insert(std::make_pair(key, toDouble(value)));
   }
 }

@@ -25,25 +25,29 @@ void BitcoinExchange::initExchanger(const std::string &userInput) {
   printRate();
 }
 
+bool comparePair(const std::pair<std::string, double> &element,
+                 const std::string &key) {
+  return element.first < key;
+}
+
 void BitcoinExchange::printRate() {
-  std::map<std::string, float>::iterator inputIt;
-  std::map<std::string, float>::iterator rateIt;
+  std::vector<std::pair<std::string, double> >::iterator inputIt;
+  std::vector<std::pair<std::string, double> >::iterator rateIt;
   for (inputIt = input.begin(); inputIt != input.end(); ++inputIt) {
     try {
-      rateIt = exchangeRate.lower_bound(inputIt->first);
-      std::cout << "rateIT : " << rateIt->first <<"\tinputIt : " << inputIt->first<<std::endl;
+      rateIt = std::lower_bound(exchangeRate.begin(), exchangeRate.end(),
+                                inputIt->first, comparePair);
+      if (rateIt->first != inputIt->first) --rateIt;
       if (!isValidDate(inputIt->first) || !isValidDate(rateIt->first))
         throw std::runtime_error("Error: bad input => " + inputIt->first);
       if (inputIt->first == "Invalid delimeter")
         throw std::runtime_error(rateIt->first);
-      if (isValidValue(inputIt->second) == -1.0f ||
-          isValidValue(rateIt->second) == -1.0f)
-        throw std::runtime_error("Error: too large number.");
-      if (isValidValue(inputIt->second) == -2.0f ||
-          isValidValue(rateIt->second) == -2.0f)
+      if (inputIt->second == NUMBER_TOO_LARGE ||
+          rateIt->second == NUMBER_TOO_LARGE)
+        throw std::runtime_error("Error: too a large number.");
+      if (inputIt->second == NEGATIVE_VALUE || rateIt->second == NEGATIVE_VALUE)
         throw std::runtime_error("Error: not a positive number.");
-      if (isValidValue(inputIt->second) == -3.0f ||
-          isValidValue(rateIt->second) == -3.0f)
+      if (inputIt->second == BAD_INPUT || rateIt->second == BAD_INPUT)
         throw std::runtime_error("Error: invlaid format");
       std::cout << inputIt->first << " => " << inputIt->second << " = "
                 << inputIt->second * rateIt->second << std::endl;
@@ -53,12 +57,12 @@ void BitcoinExchange::printRate() {
   }
 }
 
-float BitcoinExchange::toFloat(std::string &userInput) {
+double BitcoinExchange::toDouble(const std::string &userInput) {
   std::stringstream ss(userInput);
-  float ret;
+  double ret;
 
   ss >> ret;
-  if (ss.fail()) ret = -3.0f;
+  if (ss.fail()) ret = BAD_INPUT;
   return ret;
 }
 
@@ -80,15 +84,35 @@ bool BitcoinExchange::isValidDate(const std::string &date) {
   return true;
 }
 
-float BitcoinExchange::isValidValue(const float value) {
-  if (value < 0) return -1.0f;
-  if (value > 1000) return -2.0f;
+double BitcoinExchange::isValidValue(const double value) {
+  if (value < static_cast<double>(0)) return NEGATIVE_VALUE;
+  if (value > static_cast<double>(1000)) return NUMBER_TOO_LARGE;
   return value;
+}
+
+void BitcoinExchange::extractValue(const std::string &line, double &value,
+                                   const std::string &deli) {
+  const char *deli_pos = std::strstr(line.c_str(), deli.c_str());
+  if (deli_pos == 0)
+    value = BAD_INPUT;
+  else {
+    value = isValidValue(toDouble(deli_pos + deli.size()));
+  }
+}
+
+void BitcoinExchange::extractKey(const std::string &line, std::string &key,
+                                 const std::string &deli) {
+  const char *deli_pos = std::strstr(line.c_str(), deli.c_str());
+  if (deli_pos == 0)
+    key = line;
+  else
+    key = line.substr(0, deli_pos - line.data());
+  // std::cout << key << std::endl;
 }
 
 void BitcoinExchange::exchangeRateReader() {
   std::string key;
-  std::string value;
+  double value;
   std::string inputBuffer;
 
   std::ifstream is("data.csv");
@@ -100,19 +124,16 @@ void BitcoinExchange::exchangeRateReader() {
 
   std::getline(is, inputBuffer);
   while (std::getline(is, inputBuffer)) {
-    if (inputBuffer.size() < 11) {
-      value = -3;
-      continue;
-    }
-    key = inputBuffer.substr(0, 10);
-    value = inputBuffer.substr(11, inputBuffer.size() - 1);
-    exchangeRate.insert(std::make_pair(key, toFloat(value)));
+    extractKey(inputBuffer, key, ",");
+    extractValue(inputBuffer, value, ",");
+    exchangeRate.push_back(std::make_pair(key, value));
   }
+  std::sort(exchangeRate.begin(), exchangeRate.end());
 }
 
 void BitcoinExchange::inputParser(const std::string &userInput) {
   std::string key;
-  std::string value;
+  double value;
   std::string delimeter;
   std::string inputBuffer;
 
@@ -123,14 +144,8 @@ void BitcoinExchange::inputParser(const std::string &userInput) {
   }
   std::getline(is, inputBuffer);
   while (std::getline(is, inputBuffer)) {
-    if (inputBuffer.size() < 11) {
-      value = -3;
-      continue;
-    }
-    key = inputBuffer.substr(0, 10);
-    value = inputBuffer.substr(13, inputBuffer.size() - 1);
-    delimeter = inputBuffer.substr(10, 3);
-    if (delimeter != " | ") key = "Invalid delimeter";
-    input.insert(std::make_pair(key, toFloat(value)));
+    extractKey(inputBuffer, key, " | ");
+    extractValue(inputBuffer, value, " | ");
+    input.push_back(std::make_pair(key, value));
   }
 }

@@ -1,7 +1,6 @@
 {
 	"files.associations": {
-		"string": "cpp",
-		"ostream": "cpp",
+		"stdexcept": "cpp",
 		"__bit_reference": "cpp",
 		"__config": "cpp",
 		"__debug": "cpp",
@@ -53,11 +52,12 @@
 		"mutex": "cpp",
 		"new": "cpp",
 		"optional": "cpp",
+		"ostream": "cpp",
 		"ratio": "cpp",
 		"sstream": "cpp",
 		"stack": "cpp",
-		"stdexcept": "cpp",
 		"streambuf": "cpp",
+		"string": "cpp",
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"tuple": "cpp",
@@ -65,18 +65,12 @@
 		"typeinfo": "cpp",
 		"unordered_map": "cpp",
 		"utility": "cpp",
-		"vector": "cpp",
-		"filesystem": "cpp",
-		"*.tcc": "cpp",
-		"clocale": "cpp",
-		"memory_resource": "cpp",
-		"numeric": "cpp",
-		"random": "cpp"
+		"vector": "cpp"
 	},
 	"makefile.launchConfigurations": [
 		{
-			"cwd": "/mnt/d/42SEOUL/cpp/cpp09/ex00",
-			"binaryPath": "/mnt/d/42SEOUL/cpp/cpp09/ex00/btc",
+			"cwd": "/Users/segan/cpp/cpp09/ex00",
+			"binaryPath": "/Users/segan/cpp/cpp09/ex00/btc",
 			"binaryArgs": ["input.txt"]
 		}
 	]

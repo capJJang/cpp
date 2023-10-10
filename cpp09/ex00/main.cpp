@@ -7,4 +7,5 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
   BitcoinExchange ex(argv[1]);
+  // system("leaks btc");
 }
