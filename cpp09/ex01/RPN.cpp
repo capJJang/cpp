@@ -19,7 +19,7 @@ RPN::RPN(std::string &userInput) {
 void RPN::userInputValidator(const std::string &userInput) {
   size_t length = userInput.size();
   for (size_t i = 0; i < length; i++) {
-    if (!std::isdigit(userInput[i]) || userInput[i] != ' ' ||
+    if (!std::isdigit(userInput[i]) && userInput[i] != ' ' &&
         !std::strchr("+-*/", userInput[i])) {
       std::cerr << "Invalid char" << std::endl;
       exit(1);
@@ -37,34 +37,45 @@ void RPN::userInputValidator(const std::string &userInput) {
 
 void RPN::start(std::string &userInput) {
   size_t length = userInput.size();
-  size_t result = 0;
+    size_t result = 0;
+
   for (size_t i = 0; i < length; i++) {
-    if (std::isdigit(userInput[i])) s.push(userInput[i]);
+    result = 0;
+    if (std::isdigit(userInput[i])) s.push(userInput[i] - '0');
     if (userInput[i] == ' ') continue;
     if (std::strchr("+-*/", userInput[i])) {
       int left = s.top();
       s.pop();
+      if (s.size() == 0) {
+        std::cout << "Invalid Input" << std::endl;
+        exit(1);
+      }
       int right = s.top();
       s.pop();
       switch (userInput[i]) {
         case '+':
-          result += left + right;
+          result = left + right;
           break;
         case '-':
-          result += left - right;
+          result = left + right;
           break;
         case '*':
-          result += left * right;
+          result = left * right;
+          break;
         case '/':
-          result += left / right;
+          result  = left /right;
+          break;
         default:
+          std::cout << "Invalid Input" << std::endl;
+          exit(1);
           break;
       }
-      s.push(userInput[i]);
+      s.push(result);
     }
   }
-  if (s.size() == 0)
-    std::cout << result << std::endl;
+  // std::cout << result << "      " << s.size() << std::endl;
+  if (s.size() == 1)
+    std::cout << s.top() << std::endl;
   else
     std::cout << "Invalid Input" << std::endl;
 }

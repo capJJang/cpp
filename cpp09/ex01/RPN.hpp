@@ -2,13 +2,15 @@
 #define RPN_HPP
 
 #include <cctype>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <stack>
 #include <string>
 
 class RPN {
  private:
-  std::stack<char> s;
+  std::stack<int> s;
   RPN(/* args */);
   RPN &operator=(const RPN &rhs);
   RPN(const RPN &rhs);

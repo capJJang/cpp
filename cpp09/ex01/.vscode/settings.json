@@ -61,13 +61,26 @@
 		"unordered_map": "cpp",
 		"utility": "cpp",
 		"vector": "cpp",
-		"iostream": "cpp"
+		"iostream": "cpp",
+		"*.tcc": "cpp",
+		"clocale": "cpp",
+		"memory_resource": "cpp",
+		"numeric": "cpp",
+		"random": "cpp",
+		"fstream": "cpp"
 	},
 	"makefile.launchConfigurations": [
 		{
 			"cwd": "/Users/segan/cpp/cpp09/ex01",
 			"binaryPath": "/Users/segan/cpp/cpp09/ex01/RPN",
-			"binaryArgs": ["8 9 * 9 - 9 - 9 - 4 - 1 +"]
+			"binaryArgs": [
+				"8 9 * 9 - 9 - 9 - 4 - 1 +"
+			]
+		},
+		{
+			"cwd": "/mnt/d/42SEOUL/cpp/cpp09/ex01",
+			"binaryPath": "/mnt/d/42SEOUL/cpp/cpp09/ex01/RPN",
+			"binaryArgs": ["8 9 *"]
 		}
 	]
 }
