@@ -30,7 +30,8 @@ int main(int argc, char **argv) {
     std::cerr << "Error" << std::endl;
     exit(1);
   }
-  PmergeMe<std::vector<std::pair<int, int> > > test1(argc, argv);
+  PmergeMe<std::vector<int> > test1(argc, argv);
+  test1.sort();
   //   PmergeMe<std::deque<int> > test2(argc, argv);
 }
 
