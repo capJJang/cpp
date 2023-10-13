@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-template <typename Container>
+template <template <typename, typename...> class PmergeMe>
 class PmergeMe {
  private:
   PmergeMe() {}
