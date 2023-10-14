@@ -21,6 +21,14 @@ static bool isValidArgv(int argc, char **argv) {
   return true;
 }
 
+static void printArgv(int argc, char **argv) {
+  std::cout << "before: ";
+  for (int i = 1; i < argc - 1; i++) {
+    std::cout << argv[i] << " ";
+  }
+  std::cout << std::endl;
+}
+
 int main(int argc, char **argv) {
   if (argc == 1) {
     std::cerr << "Error" << std::endl;
@@ -30,8 +38,21 @@ int main(int argc, char **argv) {
     std::cerr << "Error" << std::endl;
     exit(1);
   }
-  PmergeMe<std::vector<int> > test1(argc, argv);
+  printArgv(argc, argv);
+  PmergeMe<std::vector<int>, std::vector<std::pair<int, int> > > test1(argc,
+                                                                       argv);
+  PmergeMe<std::deque<int>, std::deque<std::pair<int, int> > > test2(argc,
+                                                                     argv);
+  // PmergeMe<std::list<int>, std::list<std::pair<int, int> > > test3(argc,
+  // argv);
   test1.sort();
+  test2.sort();
+  // test3.sort();
+
+  // test1.printSortedContainer();
+  test1.printResult(argc);
+  test2.printResult(argc);
+  // test3.printResult(argc);
   //   PmergeMe<std::deque<int> > test2(argc, argv);
 }
 
