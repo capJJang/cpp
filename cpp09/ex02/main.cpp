@@ -23,7 +23,7 @@ static bool isValidArgv(int argc, char **argv) {
 
 static void printArgv(int argc, char **argv) {
   std::cout << "before: ";
-  for (int i = 1; i < argc - 1; i++) {
+  for (int i = 1; i < argc; i++) {
     std::cout << argv[i] << " ";
   }
   std::cout << std::endl;
@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
   test2.sort();
   // test3.sort();
 
-  // test1.printSortedContainer();
+  test1.printSortedContainer();
   test1.printResult(argc);
   test2.printResult(argc);
   // test3.printResult(argc);

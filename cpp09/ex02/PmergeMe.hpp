@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <iostream>
 #include <list>
+#include <queue>
 #include <sstream>
 #include <string>
 #include <typeinfo>
@@ -62,15 +63,30 @@ class PmergeMe {
 
   ~PmergeMe() {}
 
-  // compare for Container<pair>
-  bool compareFirst(const std::pair<int, int> &a,
-                    const std::pair<int, int> &b) {
-    return a.first < b.first;
+  void calculateJacobsthalSequence(std::vector<int> &jacobsthal) {
+    jacobsthal.push_back(0);
+    jacobsthal.push_back(1);
+
+    for (int i = 2; jacobsthal[i - 1] >= pendingElements.size(); ++i) {
+      int n = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
+      jacobsthal.push_back(n);
+    }
+  }
+
+  void initQ(std::queue &q) {
+    std::vector<int> jacobsthal;
+
+    calculateJacobsthalSequence(jacobsthal);
+    for (i = 0; i < pendingeElements.size(); ++i) {
+      q.push(pendingElements[i])
+    }
   }
 
   void insertElement() {
     typedef typename Container::iterator insertPosition;
+    std::queue<int> q;
 
+    initQ(q);
     for (size_t i = 0; i < pendingElements.size(); ++i) {
       int target = pendingElements[i];
       insertPosition position =
@@ -84,6 +100,22 @@ class PmergeMe {
     }
   }
 
+  // void insertElement() {
+  //   typedef typename Container::iterator insertPosition;
+
+  //    for (size_t i = 0; i < pendingElements.size(); ++i) {
+  //     int target = pendingElements[i];
+  //     insertPosition position =
+  //         std::lower_bound(mainChain.begin(), mainChain.end(), target);
+  //     mainChain.insert(position, pendingElements[i]);
+  //   }
+  //   if (leftover != -1) {
+  //     insertPosition position =
+  //         std::lower_bound(mainChain.begin(), mainChain.end(), leftover);
+  //     mainChain.insert(position, leftover);
+  //   }
+  // }
+
   void sort() {
     std::sort(c.begin(), c.end());
     pushMainChain(mainChain);
@@ -93,7 +125,7 @@ class PmergeMe {
   }
 
   void printSortedContainer() {
-    std::cout << "After: ";
+    std::cout << "After : ";
     for (unsigned long i = 0; i < mainChain.size(); ++i)
       std::cout << mainChain[i] << " ";
     std::cout << std::endl;
