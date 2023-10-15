@@ -73,11 +73,14 @@ class PmergeMe {
     }
   }
 
+  int calcOrder(const std::vector<int> &jacobsthal, int i) {}
+
   void initQ(std::queue &q) {
     std::vector<int> jacobsthal;
 
     calculateJacobsthalSequence(jacobsthal);
     for (i = 0; i < pendingeElements.size(); ++i) {
+      int order = pendingElements[i];
       q.push(pendingElements[i])
     }
   }
