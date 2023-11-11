@@ -7,8 +7,9 @@
 #include "ICharacter.hpp"
 class Character : public ICharacter {
  private:
-  int idx_;
+  int last;
   AMateria *slot[4];
+  std::string name_;
 
  public:
   Character(/* args */);

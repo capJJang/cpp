@@ -4,7 +4,7 @@ CC = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
 
-SRCS = AMateria.cpp Ice.cpp
+SRCS = AMateria.cpp Ice.cpp Character.cpp Cure.cpp Ice.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

@@ -4,29 +4,41 @@
 
 Character::Character(/* args */) {}
 
-Character::~Character() {}
+Character::~Character() { delete[] slot; }
 
-Character(const std::string& rhs) {}
+Character::Character(const std::string& rhs) {
+  this->last = 0;
+  this->name_ = rhs;
+}
 
-Character::Character(const Character& rhs) {}
+Character::Character(const Character& rhs) { *this = rhs; }
 
-Character& Character::operator=(const Character& rhs) {}
+Character& Character::operator=(const Character& rhs) {
+  for (int i = 0; i <= rhs.last; i++) {
+    /* code */
+  }
 
-std::string const& Character::getName() const {}
+  return *this;
+}
+
+std::string const& Character::getName() const { return name_; }
 
 void Character::equip(AMateria* m) {
-  if (idx_ > 3 || idx_ < 0) return;
-  slot[idx_] = m;
-  idx_++;
+  if (last > 3 || last < 0) return;
+  slot[last] = m;
+  last++;
 }
 
 void Character::unequip(int idx) {
-  if (idx_ > 3 || idx_ < 0) return;
-  for (int i = idx; i < idx_; i++) slot[idx] = slot[++idx];
-  idx_--;
+  if (last > 3 || last < 0 || idx < 0 || idx > 3) return;
+  while (idx < last) {
+    slot[idx] = slot[idx + 1];
+    idx++;
+  }
+  last--;
 }
 
 void Character::use(int idx, ICharacter& target) {
-  if (idx_ > 3 || idx_ < 0) return;
-  slot[idx_]->use(target);
+  if (last > 3 || last < 0 || idx < 0 || idx > 3) return;
+  slot[last]->use(target);
 }
