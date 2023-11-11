@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Amateria;
+class AMateria;
 
 class ICharacter {
  public:
